@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="img/plus.png" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/shared.js"></script>
+    <script src="js/jscolor.js"></script>
+
+    <style type="text/css">
+      div[id^="txt-current_"] {
+        background-color: #eeeeee;
+      }
+
+      #player-title-box {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      #txt_sync_content {
+        padding: 0px 36px;
+      }
+
+      #spkr_keys_box {
+        margin-top: 0px;
+        margin-bottom: 18px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 22px;
+      }
+
+      .spkr_key {
+        font-family: Seravek, Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        margin-right: 8px;
+        display: inline;
+      }
+
+      .spkr_name {
+        font-family: Seravek, Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        margin-right: 8px;
+        display: inline;
+        font-style: italic;
+      }
+
+      #sync_player {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        border: solid 1px #ffffff;
+      }
+
+      #gloss-box {
+        width: 100%;
+        min-height: 65px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 12px;
+      }
+
+      div.glossTable {
+        width: 100%;
+        text-align: left;
+        min-height: 30px;
+        margin-bottom: 12px;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      .divTable.glossTable .divTableRow {
+        font-size: 18px;
+        line-height: 26px;
+      }
+      .divTable.glossTable .divTableCell {
+        font-family: Seravek, Arial, Helvetica, sans-serif;
+      }
+      .divTable.glossTable .spkr {
+        width: 55px;
+      }
+      div.scrollTable {
+        width: 100%;
+        height: 470px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-x: hidden;
+        overflow-y: visible;
+        background-color: #ffffff;
+        border: solid 1px #cccccc;
+      }
+      div.scrollTableCont {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+      }
+      .divTable.scrollTableCont .divTableRow {
+        font-size: 18px;
+        line-height: 26px;
+        margin: 0;
+      }
+      .divTable.scrollTableCont .divTableCell {
+        font-family: Seravek, Arial, Helvetica, sans-serif;
+      }
+      .divTable.scrollTableCont .spkr {
+        width: 55px;
+        margin-right: 4px;
+        font-weight: normal;
+        padding-left: 12px;
+      }
+      .divTable.scrollTableCont .spkr:hover {
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .divTable.scrollTableCont .spkn {
+        margin-left: 8px;
+        padding-right: 12px;
+      }
+
+      .divTable {
+        display: table;
+      }
+      .divTableRow {
+        display: table-row;
+      }
+      .divTableCell {
+        display: table-cell;
+      }
+    </style>
+    <script type="text/javascript">
+      var media;
+      var ts_start_time_array = [];
+      var ts_stop_time_array = [];
+      var sub_time;
+      var initial_time = "";
+      var initial_time_end = "";
+      var current_start_time = "";
+      var current_id_arr = [];
+      var transArr = Array();
+      var glossArr = Array();
+      var speakerShowArr = Array();
+      var tierShowArr = Array();
+      /* DATA */
+      var dataArr = {
+        "Rey Castillo García": {
+          display: "bottom",
+          color: "",
+          lines: {
+            a18: {
+              lineref: "a18",
+              start: 0,
+              stop: 0,
+              value:
+                "Nda³tu'⁴un⁴ lu³chi'⁴i²=un⁴ ji'⁴in⁴=ndu² xa'¹a⁴ i³ta² sa³in⁴ ta³ta² chi¹.",
+            },
+            a19: {
+              lineref: "a19",
+              start: 7.1,
+              stop: 7.1,
+              value:
+                "Sa¹a³ nu¹⁴u³ ba⁴² i⁴yo² tan³ sa¹a³, nda⁴a² ba⁴² chi'⁴i⁴=na⁽²⁾=e² nda⁴a² tiem⁴pu² chi'⁴i⁴=na⁽²⁾=e²",
+            },
+            a20: {
+              lineref: "a20",
+              start: 11.972,
+              stop: 11.972,
+              value:
+                "na⁴chu³ jo⁴ndo¹³=a² ji'⁴in⁴=na², sa¹a³ i⁴in⁽⁴⁾=a² chi¹ tan³ na⁴chu³ jo⁴ndo¹³=a² chi¹.",
+            },
+            a27: {
+              lineref: "a27",
+              start: 57.621,
+              stop: 57.621,
+              value: "¿An⁴ ki⁴ku¹³=na⁽³⁾=e³?",
+            },
+            a29: {
+              lineref: "a29",
+              start: 64.875,
+              stop: 64.875,
+              value: "¿An⁴ xa'⁴an² bi¹xi⁽¹⁾=a¹?",
+            },
+            a33: {
+              lineref: "a33",
+              start: 79.697,
+              stop: 79.697,
+              value:
+                "An⁴ sa³kan⁴ ba³. Tan⁴² i⁴yo², ya¹ ba⁴li⁴ ba⁴² kan⁴. Tan³ ki⁴ku¹³=na⁽²⁾=e² tan³, ya¹kan³, tan³ ¿sa¹a³ i⁴xa³=na² nda⁴-ka³ya²=na¹ ta³ta² tin³?",
+            },
+            a36: {
+              lineref: "a36",
+              start: 96.045,
+              stop: 96.045,
+              value:
+                "Tan³ ¿an⁴ a¹su³ in³ka⁴chi¹ chi'⁴i⁴=na⁽²⁾=e² ji'⁴in⁴, ya¹kan³ ...? I³in³ tiem⁴pu². An⁴ sa³kan⁴ ba³.",
+            },
+            a39: {
+              lineref: "a39",
+              start: 111.448,
+              stop: 111.448,
+              value: "Ba¹⁴³ xi⁴yo¹³=a² yu³mi⁴.",
+            },
+            a42: {
+              lineref: "a42",
+              start: 117.752,
+              stop: 117.752,
+              value:
+                "An⁴ sa³kan⁴ ba³ te¹. Tan³ ya¹kan³, sa³kan⁴ ku⁴u⁴ ndi'³i³ ba⁽³⁾=e² ran⁴. Ba'¹a³.",
+            },
+            a43: {
+              lineref: "a43",
+              start: 124.14,
+              stop: 124.14,
+              value: "¿Sa¹a³ na³ni⁽⁴⁾=un⁴?",
+            },
+            a45: {
+              lineref: "a45",
+              start: 127.012,
+              stop: 127.012,
+              value: "¿Sa¹a³ kwi¹ya⁽¹⁾=on⁴?",
+            },
+            a47: {
+              lineref: "a47",
+              start: 130.175,
+              stop: 131.876,
+              value: "¿Sa¹a³ na³ni⁴ ñu³u²=un⁴?",
+            },
+            a49: {
+              lineref: "a49",
+              start: 132.305,
+              stop: 132.313,
+              value: "Ba'¹a³ ba³.",
+            },
+          },
+        },
+        "Rey Castillo García Surface-2": {
+          display: "bottom",
+          color: "",
+          lines: {
+            a18_SURFACE2: {
+              lineref: "a18_SURFACE2",
+              start: 0,
+              stop: 7.1,
+              value:
+                "Nda³tũ'⁴ũ⁴ lu³chỹũ'⁴ũ²⁴ jĩ'⁴ĩ⁴ndu² xa'¹a⁴ i³ta² sã³ĩ⁴ ta³ta² chi¹.",
+            },
+            a19_SURFACE2: {
+              lineref: "a19_SURFACE2",
+              start: 7.1,
+              stop: 11.972,
+              value:
+                "Sa¹a³ nũ¹⁴ũ³ ba⁴² i⁴yo² tã³ sa¹a³, nda⁴a² ba⁴² chi'⁴i⁴nẽ² nda⁴a² tyem⁴pu² chi'⁴i⁴nẽ².",
+            },
+            a20_SURFACE2: {
+              lineref: "a20_SURFACE2",
+              start: 11.972,
+              stop: 16.909,
+              value:
+                "nã⁴chu³ jo⁴ndwa¹³² jĩ'⁴ĩ⁴nã², sa¹a³ ỹã⁴ã² chi¹ tã³ nã⁴chu³ jo⁴ndwa¹³² chi¹.",
+            },
+            a27_SURFACE2: {
+              lineref: "a27_SURFACE2",
+              start: 57.621,
+              stop: 58.351,
+              value: "¿An⁴ ki⁴ku¹³nẽ³?",
+            },
+            a29_SURFACE2: {
+              lineref: "a29_SURFACE2",
+              start: 64.875,
+              stop: 65.885,
+              value: "¿An⁴ xã'⁴ã² bi¹xya¹?",
+            },
+            a33_SURFACE2: {
+              lineref: "a33_SURFACE2",
+              start: 79.697,
+              stop: 86.903,
+              value:
+                "An⁴ sa³kã⁴ ba³. Tã⁴² i⁴yo² ya¹ ba⁴li⁴ ba⁴² kã⁴. Tã³ ki⁴ku¹³nẽ² tã³, ya¹kã³, tã³ ¿sa¹a³ i⁴xa³nã² nda⁴ka³ya²nã¹ ta³ta² tĩ³?",
+            },
+            a36_SURFACE2: {
+              lineref: "a36_SURFACE2",
+              start: 96.045,
+              stop: 104.113,
+              value:
+                "Tã³ ¿ã⁴ a¹su³ ĩ³ka⁴chi¹ chi'⁴i⁴nẽ² jĩ'⁴ĩ⁴, ya¹kã³ ...?  I³ĩ³ tyem⁴pu². An⁴ sa³kã⁴ ba³.",
+            },
+            a39_SURFACE2: {
+              lineref: "a39_SURFACE2",
+              start: 111.448,
+              stop: 113.478,
+              value: "Ba¹⁴³ xi⁴ywa¹³² yu³mĩ⁴.",
+            },
+            a42_SURFACE2: {
+              lineref: "a42_SURFACE2",
+              start: 117.752,
+              stop: 124.14,
+              value:
+                "An⁴ sa³kã⁴ ba³ te¹. Tã³ ya¹kã³, sa³kã⁴ ku⁴u⁴ ndi'³i³ be² rã⁴. Ba'¹a³.",
+            },
+            a43_SURFACE2: {
+              lineref: "a43_SURFACE2",
+              start: 124.14,
+              stop: 127.012,
+              value: "¿Sa¹a³ nã³nỹũ⁴?",
+            },
+            a45_SURFACE2: {
+              lineref: "a45_SURFACE2",
+              start: 127.012,
+              stop: 130.175,
+              value: "¿Sa¹a³ kwi¹ỹõ⁴?",
+            },
+            a47_SURFACE2: {
+              lineref: "a47_SURFACE2",
+              start: 130.175,
+              stop: 132.305,
+              value: "¿Sa¹a³ nã³nĩ⁴ ñũ³ũ²⁴?",
+            },
+            a49_SURFACE2: {
+              lineref: "a49_SURFACE2",
+              start: 132.313,
+              stop: 134.468,
+              value: "Ba'¹a³ ba³.",
+            },
+          },
+        },
+        "Raúl Felipe Margarito": {
+          display: "bottom",
+          color: "",
+          lines: {
+            a21: {
+              lineref: "a21",
+              start: 16.909,
+              stop: 16.909,
+              value:
+                "I³ta² sa³in⁴ ta³ta² kan⁴ ba⁴² ya¹, ya¹ ka⁴chi²=o⁴ ndo⁴ko³to⁽³⁾=e⁴ ji'⁴in⁴ i³ta² kwa¹on⁴ ka⁴chi²=o⁴ ya¹ bi³ko⁴ i³ta²,",
+            },
+            a22: {
+              lineref: "a22",
+              start: 24.331,
+              stop: 24.331,
+              value:
+                "ya¹ chi'⁴i⁴=na⁽²⁾=e² kan⁴ ndi⁴ a¹su³ tiem⁴pu² ka³ta²=e⁴ tun⁴ i³ta² kwa¹on⁴ i³kan⁴ ba⁴² chi³..., ka³ta² tu⁽³⁾=e⁴ ya¹ kan⁴ ndi³kin⁴=a² kan⁴ tan³",
+            },
+            a23: {
+              lineref: "a23",
+              start: 31.243,
+              stop: 31.243,
+              value:
+                "Xi¹⁴in³=ni⁴² bi⁴=a² ko³o⁽³⁾=a² ñu³u²=e⁴ ka¹a³ ndi⁴ ba³ ba¹⁴³ ndu⁴ta'³an⁽²⁾=e² ko³o⁽³⁾=a² ka¹a³ ndi⁴ ñu³u² ja¹, an⁴ ñu³u² sa'⁴an⁴ ba⁴² an⁴ ñu³u² bi¹xin³ ka¹ i³kan⁴ ba⁴² la³tun⁴ xi⁴yo¹³=a² tan³ ñu³u²=e⁴ ka¹a³ ndi⁴ kwa⁴chi³=ni⁴² xa'⁴nu³=run⁴ tu⁴u²=yu¹.",
+            },
+            a24: {
+              lineref: "a24",
+              start: 40.327,
+              stop: 40.327,
+              value:
+                "So'³o³ so'³o³ ti⁴ ba³ xa'⁴nu³=run⁴ tan³ i⁴yo² i³ta²=run⁴, ba⁴li⁴=ni⁴² nu¹⁴u⁽³⁾=a² so'³o³ so'³o³ ti⁴ ba⁴li⁴ nu¹⁴u⁽³⁾=a² tan³",
+            },
+            a25: {
+              lineref: "a25",
+              start: 46.041,
+              stop: 46.041,
+              value:
+                "ya¹ kan⁴ ba⁴² kwa'¹an¹ ji'⁴in⁽⁴⁾=o⁴ pa³san⁴tu² ndo³ko³to⁽³⁾=e⁴ ji'⁴in⁴ i³ta² kwa¹on⁴ na⁴tu² i⁴yo⁽²⁾=a² xa³ku⁴=ni⁴² ba⁴² xi⁴yo¹³=a² ñu³u² ka¹a³. Ko¹⁴o³ ba'¹a³ ba'¹a³=e² kan⁴ ñu³u² ka¹a³ ndi⁴,",
+            },
+            a26: {
+              lineref: "a26",
+              start: 53.917,
+              stop: 53.917,
+              value:
+                "an⁴ ba¹⁴³ chi'⁴i⁴=na⁽²⁾=e² an⁴ ko¹⁴o³ ni³ mi³i⁴=² tan³ ba¹⁴³ chi'⁴i⁽⁴⁾=a² a¹chi¹ ndi⁴ ta³ta⁽²⁾=e² ku⁴ni⁽²⁾=a².",
+            },
+            a28: {
+              lineref: "a28",
+              start: 58.351,
+              stop: 58.351,
+              value:
+                "Ki⁴ku¹³=na⁽²⁾=e² ji'⁴in⁴ yo'³o⁴ ki⁴ku¹³=na⁽³⁾=e³. Ni⁴i²⁴ chi'⁴i² so'³o³ so'³o³ ti⁴ yo'³o⁴=a² ya¹ sa³kan⁴ ku⁴u⁽⁴⁾=a² ya¹ i³ta² ba⁴li⁴=ni⁴² ba⁴³.",
+            },
+            a30: {
+              lineref: "a30",
+              start: 65.885,
+              stop: 65.885,
+              value:
+                "Xa'⁴an² bi¹xi¹ ta'³an⁽²⁾=e², xa'⁴an² bi¹xi⁽¹⁾=a¹ ba'¹a³ xi³ko² ba⁽³⁾=e² ku'¹un¹ ji'⁴in⁽⁴⁾=o⁴ ndo³ko³to⁽³⁾=e⁴.",
+            },
+            a31: {
+              lineref: "a31",
+              start: 70.611,
+              stop: 70.611,
+              value:
+                "I³ta² ndi¹⁴i² ba⁴² kan⁴, i⁴yo⁽²⁾=a² ndi¹⁴i² i⁴yo⁽²⁾=a² kwa'⁴a¹, u¹bi¹ nu¹⁴u³ tu³ ba⁴² kan⁴ ba³.",
+            },
+            a32: {
+              lineref: "a32",
+              start: 75.889,
+              stop: 75.889,
+              value:
+                "Tan⁴² ku⁴ni² ko³o³ yu¹ku¹ tun⁴ i³ta² <i>pastora</i> sa³kan⁴ ku⁴ni² ko³o³ tu³ yu¹ku¹ tun⁴ kan⁴ ba³.",
+            },
+            a34: {
+              lineref: "a34",
+              start: 79.697,
+              stop: 86.903,
+              value: "A¹be³, sa³kan⁴ i⁴in⁽⁴⁾=a² ya¹ kwi⁴i²⁴ ba⁴li⁴ ba⁴² kan⁴.",
+            },
+            a35: {
+              lineref: "a35",
+              start: 86.903,
+              stop: 86.903,
+              value:
+                "Ndi³kin⁴=a² kan⁴ nda⁴-ka³ya²=na¹ tu⁴u²=yu¹ a¹chi¹ ndi⁴ ta'¹⁴an² chi'³i⁽³⁾=a². A¹chi¹ ndi⁴ ya¹ i⁴yo² ndi³kin⁴ ba⁴² mi⁴i⁴ i⁴yo², mi⁴i⁴ i⁴yo² i³ta⁽²⁾=e² kan⁴ i³kan⁴ ndo⁴o¹³=a² i⁴chi⁽¹⁾=a¹ tan³ i³kan⁴ nda³-ka³ya²=na⁽¹⁾=e¹ ko⁴..., ko⁴ndo⁽³⁾=a² ta³ta²=na¹.",
+            },
+            a37: {
+              lineref: "a37",
+              start: 96.045,
+              stop: 104.113,
+              value:
+                "In³ka⁴chi¹ chi'⁴i⁴=na⁽²⁾=e² ji'⁴in⁴ tun⁴ i³ta² kwa¹on⁴ ba³ tu⁴u²=yu¹, i³in³ tiem⁴pu².",
+            },
+            a38: {
+              lineref: "a38",
+              start: 104.113,
+              stop: 104.113,
+              value:
+                "I³in³ tiem⁴pu² ya¹ kan⁴ ndi⁴ ndu⁴ta⁽¹⁾=e¹ tan³ ja⁴chiu⁴un⁽⁴⁾=a² ji'⁴in⁴=na² ya¹, ya¹ bi³ko⁴ i³ta² ka⁴chi²=o⁴ kan⁴ a¹chi¹, sa³kan⁴ ba⁴² ji⁴ni² yu'¹u¹ ba⁽³⁾=e² ran⁴, ko¹⁴o⁽³⁾=a² ji⁴ni²=yu¹ tiem⁴pu² bi³tin³ ndi⁴,",
+            },
+            a40: {
+              lineref: "a40",
+              start: 111.448,
+              stop: 113.478,
+              value: "Ba¹⁴³ xi⁴yo¹³=a² yu³mi⁴.",
+            },
+            a41: {
+              lineref: "a41",
+              start: 113.478,
+              stop: 113.478,
+              value:
+                "Ji¹⁴ni²=o⁴ sa¹a³ a³sa⁽³⁾=e² na⁴ i⁴yo² ndi³kin⁴=a² tan³ chi'³i⁽³⁾=o⁴=e² ndi⁴ xa³ku⁴=ni⁴² xi⁴yo¹³=a² ñu³u²=e⁴ ka¹a³.",
+            },
+            a44: {
+              lineref: "a44",
+              start: 124.14,
+              stop: 127.012,
+              value: "Raúl na³ni⁴=².",
+            },
+            a46: {
+              lineref: "a46",
+              start: 127.012,
+              stop: 130.175,
+              value: "U¹bi¹ xi³ko³ i¹ñu¹ kwi¹ya¹ ku⁴u⁽⁴⁾=².",
+            },
+            a48: {
+              lineref: "a48",
+              start: 130.175,
+              stop: 132.313,
+              value: "Yoloxóchitl ku⁴u⁴ ñu³u²=yu¹.",
+            },
+          },
+        },
+        "Raúl Felipe Margarito Surface-2": {
+          display: "bottom",
+          color: "",
+          lines: {
+            a21_SURFACE2: {
+              lineref: "a21_SURFACE2",
+              start: 16.909,
+              stop: 24.331,
+              value:
+                "I³ta² sã³ĩ⁴ ta³ta² kã⁴ ba⁴² ya¹, ya¹ ka⁴chyo²⁴ ndo⁴ko³twe⁴ jĩ'⁴ĩ⁴ i³ta² kwã¹õ⁴ ka⁴chyo²⁴ ya¹ bi³ko⁴ i³ta²,",
+            },
+            a22_SURFACE2: {
+              lineref: "a22_SURFACE2",
+              start: 24.331,
+              stop: 31.243,
+              value:
+                "ya¹ chi'⁴i⁴nẽ² kã⁴ ndi⁴ a¹su³ tyem⁴pu² ka³te²⁴ tũ⁴ i³ta² kwã¹õ⁴ i³kã⁴ ba⁴² chi³..., ka³ta² twe⁴ ya¹ kã⁴ ndi³kỹã⁴² kã⁴ tã³",
+            },
+            a23_SURFACE2: {
+              lineref: "a23_SURFACE2",
+              start: 31.243,
+              stop: 40.327,
+              value:
+                "Xĩ¹⁴ĩn³=ni⁴² bya⁴² kwa³a² nywe³e²⁴ ka¹a³ ndi⁴ ba³ ba¹⁴³ ndu⁴tẽ'³ẽ² kwa³a² ka¹a³ ndi⁴ ñũ³ũ² ja¹, ã⁴ ñũ³ũ² sã'⁴ã⁴ ba⁴² ã⁴ ñũ³ũ² bi¹xĩ³ ka¹ i³kã⁴ ba⁴² la³tũ⁴ xi⁴ywa¹³² tã³ nywe³e²⁴ ka¹a³ ndi⁴ kwa⁴chi³nĩ⁴² xa'⁴nũ³rũ⁴ tu⁴u²yu¹.",
+            },
+            a24_SURFACE2: {
+              lineref: "a24_SURFACE2",
+              start: 40.327,
+              stop: 46.041,
+              value:
+                "So'³o³ so'³o³ ti⁴ ba³ xa'⁴nũ³rũ⁴ tã³ i⁴yo² i³ta²rũ⁴, ba⁴li⁴nĩ⁴² nw̃ã¹⁴ã² so'³o³ so'³o³ ti⁴ ba⁴li⁴ nw̃ã¹⁴ã² tã³",
+            },
+            a25_SURFACE2: {
+              lineref: "a25_SURFACE2",
+              start: 46.041,
+              stop: 53.917,
+              value:
+                "ya¹ kã⁴ ba⁴² kwã'¹ã¹ jyo'⁴o⁴ pa³sã⁴tu² ndo³ko³twe⁴ jĩ'⁴ĩ⁴ i³ta² kwã¹õ⁴ nã⁴tu² i⁴ywa² xa³ku⁴nĩ⁴² ba⁴² xi⁴ywa¹³² ñũ³ũ² ka¹a³. Ko¹⁴o³ ba'¹a³ be'¹e³² kã⁴ ñũ³ũ² ka¹a³ ndi⁴,",
+            },
+            a26_SURFACE2: {
+              lineref: "a26_SURFACE2",
+              start: 53.917,
+              stop: 57.621,
+              value:
+                "ã⁴ ba¹⁴³ chi'⁴i⁴nẽ² ã⁴ ko¹⁴o³ nĩ³ mĩ³ĩ⁴² tã³ ba¹⁴³ chya'⁴a² a¹chi¹ ndi⁴ ta³te² ku⁴nỹã².",
+            },
+            a28_SURFACE2: {
+              lineref: "a28_SURFACE2",
+              start: 58.351,
+              stop: 64.875,
+              value:
+                "Ki⁴ku¹³nẽ² jĩ'⁴ĩ⁴ yo'³o⁴ ki⁴ku¹³nẽ³. Ni⁴i²⁴ chi'⁴i² so'³o³ so'³o³ ti⁴ ywa'³a⁴² ya¹ sa³kã⁴ kwa⁴a² ya¹ i³ta² ba⁴li⁴nĩ⁴² ba⁴³.",
+            },
+            a30_SURFACE2: {
+              lineref: "a30_SURFACE2",
+              start: 65.885,
+              stop: 70.611,
+              value:
+                "Xã'⁴ã² bi¹xi¹ tẽ'³ẽ², xã'⁴ã² bi¹xya¹ ba'¹a³ xi³ko² be² kũ'¹ũ¹ jyo'⁴o⁴ ndo³ko³twe⁴.",
+            },
+            a31_SURFACE2: {
+              lineref: "a31_SURFACE2",
+              start: 70.611,
+              stop: 75.889,
+              value:
+                "I³ta² ndi¹⁴i² ba⁴² kã⁴, i⁴ywa² ndi¹⁴i² i⁴ywa² kwa'⁴a¹, u¹bi¹ nũ¹⁴ũ³ tu³ ba⁴² kã⁴ ba³.",
+            },
+            a32_SURFACE2: {
+              lineref: "a32_SURFACE2",
+              start: 75.889,
+              stop: 79.697,
+              value:
+                "Tã⁴² ku⁴nĩ² ko³o³ yu¹ku¹ tũ⁴ i³ta² <i>pastora</i> sa³kã⁴ ku⁴nĩ² ko³o³ tu³ yu¹ku¹ tũ⁴ kã⁴ ba³.",
+            },
+            a34_SURFACE2: {
+              lineref: "a34_SURFACE2",
+              start: 79.697,
+              stop: 86.903,
+              value: "A¹be³, sa³kã⁴ ỹã⁴ã² ya¹ kwi⁴i²⁴ ba⁴li⁴ ba⁴² kã⁴.",
+            },
+            a35_SURFACE2: {
+              lineref: "a35_SURFACE2",
+              start: 86.903,
+              stop: 96.045,
+              value:
+                "Ndi³kỹã⁴² kã⁴ nda⁴ka³ya²nã¹ tu⁴u²yu¹ a¹chi¹ ndi⁴ tã'¹⁴ã² chya'³a². A¹chi¹ ndi⁴ ya¹ i⁴yo² ndi³kĩ⁴ ba⁴² mĩ⁴ĩ⁴ i⁴yo², mĩ⁴ĩ⁴ i⁴yo² i³te² kã⁴ i³kã⁴ ndwa⁴a¹³² i⁴chya¹ tã³ i³kã⁴ nda³ka³ya²nẽ¹ ko⁴..., ko⁴ndwa² ta³ta²nã¹.",
+            },
+            a37_SURFACE2: {
+              lineref: "a37_SURFACE2",
+              start: 96.045,
+              stop: 104.113,
+              value:
+                "In³ka⁴chi¹ chi'⁴i⁴nẽ² jĩ'⁴ĩ⁴ tũ⁴ i³ta² kwã¹õ⁴ ba³ tu⁴u²yu¹ ĩ³ĩ³ tyem⁴pu².",
+            },
+            a38_SURFACE2: {
+              lineref: "a38_SURFACE2",
+              start: 104.113,
+              stop: 111.448,
+              value:
+                "I³ĩ³ tyem⁴pu² ya¹ kã⁴ ndi⁴ ndu⁴te¹ tã³ ja⁴chw̃ã⁴ã² jĩ'⁴ĩ⁴nã² ya¹, ya¹ bi³ko⁴ i³ta² ka⁴chyo²⁴ kã⁴ a¹chi¹, sa³kã⁴ ba⁴² ji⁴nĩ² yu'¹u¹ be² rã⁴, kwa¹⁴a² ji⁴nĩ²yu¹ tyem⁴pu² bi³tĩ³ ndi⁴,",
+            },
+            a40_SURFACE2: {
+              lineref: "a40_SURFACE2",
+              start: 111.448,
+              stop: 113.478,
+              value: "Ba¹⁴³ xi⁴ywa¹³² yu³mĩ⁴.",
+            },
+            a41_SURFACE2: {
+              lineref: "a41_SURFACE2",
+              start: 113.478,
+              stop: 117.752,
+              value:
+                "Ji¹⁴ndyo²⁴ sa¹a³ a³se² nã⁴ i⁴yo² ndi³kỹã⁴² tã³ chye'³e⁴² ndi⁴ xa³ku⁴nĩ⁴² xi⁴ywa¹³² nywe³e²⁴ ka¹a³.",
+            },
+            a44_SURFACE2: {
+              lineref: "a44_SURFACE2",
+              start: 124.14,
+              stop: 127.012,
+              value: "Raúl nã³nĩ⁴².",
+            },
+            a46_SURFACE2: {
+              lineref: "a46_SURFACE2",
+              start: 127.012,
+              stop: 130.175,
+              value: "U¹bi¹ xi³ko³ i¹ñũ¹ kwi¹ya¹ ku⁴u².",
+            },
+            a48_SURFACE2: {
+              lineref: "a48_SURFACE2",
+              start: 130.175,
+              stop: 130.175,
+              value: "Yoloxóchitl ku⁴u⁴ ñũ³ũ²yu¹.",
+            },
+          },
+        },
+        "RCG Traducción": {
+          display: "top",
+          color: "",
+          lines: {
+            a50: {
+              lineref: "a18",
+              start: 0,
+              stop: 7.1,
+              value: "Cuéntanos un poco sobre la flor de olote doméstica.",
+            },
+            a51: {
+              lineref: "a19",
+              start: 7.1,
+              stop: 11.972,
+              value:
+                "Cuántos tipos hay, dónde hay, y en qué tiempo lo siembran.",
+            },
+            a52: {
+              lineref: "a20",
+              start: 11.972,
+              stop: 16.909,
+              value: "Para qué lo utilizan, cómo son, y para qué se utilizan.",
+            },
+            a53: {
+              lineref: "a27",
+              start: 57.621,
+              stop: 58.351,
+              value: "¿Lo cosen en guirnaldas?",
+            },
+            a54: {
+              lineref: "a29",
+              start: 64.875,
+              stop: 65.885,
+              value: "¿Y huele bien?",
+            },
+            a55: {
+              lineref: "a33",
+              start: 79.697,
+              stop: 86.903,
+              value:
+                "¿Ah, sí? Son como, son pequeños.  Y los cosen y, este, y cómo recogen las semillas para sembrar?",
+            },
+            a56: {
+              lineref: "a36",
+              start: 96.045,
+              stop: 104.113,
+              value:
+                "Y ¿los siembran juntos con el cempazúchitl? Al mismo tiempo. ¿Ah, sí?",
+            },
+            a57: {
+              lineref: "a39",
+              start: 111.448,
+              stop: 113.478,
+              value: "¿No se da en temporada de seca?",
+            },
+            a58: {
+              lineref: "a42",
+              start: 117.752,
+              stop: 124.14,
+              value: "¿Ah, sí? Y, este, eso es todo, pues. Bueno.",
+            },
+            a59: {
+              lineref: "a43",
+              start: 124.14,
+              stop: 127.012,
+              value: "¿Cómo te llamas?",
+            },
+            a60: {
+              lineref: "a45",
+              start: 127.012,
+              stop: 130.175,
+              value: "¿Cuántos años tienes?",
+            },
+            a61: {
+              lineref: "a47",
+              start: 130.175,
+              stop: 132.305,
+              value: "¿Cómo se llama tu pueblo?",
+            },
+            a62: {
+              lineref: "a49",
+              start: 132.305,
+              stop: 134.468,
+              value: "Sí, está bien.",
+            },
+          },
+        },
+        "RFM Traducción": {
+          display: "top",
+          color: "",
+          lines: {
+            a63: {
+              lineref: "a21",
+              start: 16.909,
+              stop: 24.331,
+              value:
+                "La flor de olote doméstica es la que se ocupa en las ofrendas en los altares junto con la flor de cempazúchitl en todo santo,",
+            },
+            a64: {
+              lineref: "a22",
+              start: 24.331,
+              stop: 31.243,
+              value:
+                "las siembran en el tiempo en el que se siembran las semillas de cempazúchitl.",
+            },
+            a65: {
+              lineref: "a23",
+              start: 31.243,
+              stop: 40.327,
+              value:
+                "Aquí en el pueblo no se dan muy bien, en otros lugares, quizá más fríos se dan las flores muy bonitas, pero aquí en el pueblo se dan las flores muy pequeñas, creo.",
+            },
+            a66: {
+              lineref: "a24",
+              start: 40.327,
+              stop: 46.041,
+              value:
+                "Crece apenas así, sus flores son muy pequeñas, apenas así y",
+            },
+            a67: {
+              lineref: "a25",
+              start: 46.041,
+              stop: 53.917,
+              value:
+                "esas flores son las que se llevan en los ofrendas junto con las flores de cempazúchitl en el tiempo de todo santo, se dan muy poco aquí en el pueblo. No se da bien en este pueblo.",
+            },
+            a68: {
+              lineref: "a26",
+              start: 53.917,
+              stop: 57.621,
+              value:
+                "Quizá no lo siembran, ni yo no lo siembro porque para eso se necesitan las semillas.",
+            },
+            a69: {
+              lineref: "a28",
+              start: 58.351,
+              stop: 64.875,
+              value:
+                "Sí, los cosen con un hilo delgado. Sus guirnaldas son delgadas porque sus flores son muy pequeñas.",
+            },
+            a70: {
+              lineref: "a30",
+              start: 65.885,
+              stop: 70.611,
+              value:
+                "Sí tiene olor, huelen, sirven para llevarlas a ofrendar en los altares.",
+            },
+            a71: {
+              lineref: "a31",
+              start: 70.611,
+              stop: 75.889,
+              value:
+                "Sus flores son rosas, hay rosas y rojas, esas también son de dos tipos.",
+            },
+            a72: {
+              lineref: "a32",
+              start: 75.889,
+              stop: 79.697,
+              value:
+                "Se parecen a las hojas de la flor de pastora las hojas de ésa planta.",
+            },
+            a73: {
+              lineref: "a34",
+              start: 79.697,
+              stop: 86.903,
+              value: "Sí asi son verdes, son pequeñas.",
+            },
+            a74: {
+              lineref: "a35",
+              start: 86.903,
+              stop: 96.045,
+              value:
+                "Recogen las semillas de esas flores creo, porque yo no la he sembrado. Porque tienen semillas, donde tiene sus flores las secan para recoger las semillas para sembrar.",
+            },
+            a75: {
+              lineref: "a37",
+              start: 96.045,
+              stop: 104.113,
+              value: "Sí los siembran al mismo tiempo que el cempazúchitl.",
+            },
+            a76: {
+              lineref: "a38",
+              start: 104.113,
+              stop: 111.448,
+              value:
+                "Al mismo tiempo se da, porque se ocupa en todo santo, sé que se da en ese tiempo, no hay en esta temporada que yo sepa.",
+            },
+            a77: {
+              lineref: "a40",
+              start: 111.448,
+              stop: 113.478,
+              value: "No se da en temporada de seca.",
+            },
+            a78: {
+              lineref: "a41",
+              start: 113.478,
+              stop: 117.752,
+              value:
+                "No sabemos si al sembrarla se va dar en este pueblo porque aqui se da muy poco.",
+            },
+            a79: {
+              lineref: "a44",
+              start: 124.14,
+              stop: 127.012,
+              value: "Me llamo Raúl.",
+            },
+            a80: {
+              lineref: "a46",
+              start: 127.012,
+              stop: 130.175,
+              value: "Tengo 46 años.",
+            },
+            a81: {
+              lineref: "a48",
+              start: 130.175,
+              stop: 132.313,
+              value: "Mi pueblo es Yoloxóchitl.",
+            },
+          },
+        },
+      };
+      var tierArr = {
+        "Rey Castillo García": {
+          participant: "Rey Castillo García",
+          tiers: {
+            "Rey Castillo García": {
+              name: "Rey Castillo García",
+              code: "RCG",
+              color: "049160",
+            },
+            "Rey Castillo García Surface-2": {
+              name: "Rey Castillo García Surface-2",
+              code: "RCG",
+              color: "16F304",
+            },
+            "RCG Traducción": {
+              name: "RCG Traducción",
+              code: "RCG",
+              color: "46AF7E",
+            },
+          },
+        },
+        "Raúl Felipe Margarito": {
+          participant: "Raúl Felipe Margarito",
+          tiers: {
+            "Raúl Felipe Margarito": {
+              name: "Raúl Felipe Margarito",
+              code: "RFM",
+              color: "DC209C",
+            },
+            "Raúl Felipe Margarito Surface-2": {
+              name: "Raúl Felipe Margarito Surface-2",
+              code: "RFM",
+              color: "1F807F",
+            },
+            "RFM Traducción": {
+              name: "RFM Traducción",
+              code: "RFM",
+              color: "90C647",
+            },
+          },
+        },
+      };
+      var timeslotArr = {
+        1: 0,
+        2: 0,
+        3: 7100,
+        4: 7100,
+        5: 7100,
+        6: 7100,
+        7: 11972,
+        8: 11972,
+        9: 11972,
+        10: 11972,
+        11: 16909,
+        12: 16909,
+        13: 16909,
+        14: 16909,
+        15: 24331,
+        16: 24331,
+        17: 24331,
+        18: 24331,
+        19: 31243,
+        20: 31243,
+        21: 31243,
+        22: 31243,
+        23: 40327,
+        24: 40327,
+        25: 40327,
+        26: 40327,
+        27: 46041,
+        28: 46041,
+        29: 46041,
+        30: 46041,
+        31: 53917,
+        32: 53917,
+        33: 53917,
+        34: 53917,
+        35: 57621,
+        36: 57621,
+        37: 57621,
+        38: 57621,
+        39: 58351,
+        40: 58351,
+        41: 58351,
+        42: 58351,
+        43: 64875,
+        44: 64875,
+        45: 64875,
+        46: 64875,
+        47: 65885,
+        48: 65885,
+        49: 65885,
+        50: 65885,
+        51: 70611,
+        52: 70611,
+        53: 70611,
+        54: 70611,
+        55: 75889,
+        56: 75889,
+        57: 75889,
+        58: 75889,
+        59: 79697,
+        60: 79697,
+        61: 79697,
+        62: 79697,
+        63: 79697,
+        64: 79697,
+        65: 86903,
+        66: 86903,
+        67: 86903,
+        68: 86903,
+        69: 86903,
+        70: 86903,
+        71: 96045,
+        72: 96045,
+        73: 96045,
+        74: 96045,
+        75: 96045,
+        76: 96045,
+        77: 104113,
+        78: 104113,
+        79: 104113,
+        80: 104113,
+        81: 104113,
+        82: 104113,
+        83: 111448,
+        84: 111448,
+        85: 111448,
+        86: 111448,
+        87: 111448,
+        88: 111448,
+        89: 113478,
+        90: 113478,
+        91: 113478,
+        92: 113478,
+        93: 113478,
+        94: 113478,
+        95: 117752,
+        96: 117752,
+        97: 117752,
+        98: 117752,
+        99: 124140,
+        100: 124140,
+        101: 124140,
+        102: 124140,
+        103: 124140,
+        104: 124140,
+        105: 127012,
+        106: 127012,
+        107: 127012,
+        108: 127012,
+        109: 127012,
+        110: 127012,
+        111: 127012,
+        112: 127012,
+        113: 130175,
+        114: 130175,
+        115: 130175,
+        116: 130175,
+        117: 130175,
+        118: 130175,
+        119: 130175,
+        120: 130175,
+        121: 131876,
+        122: 132305,
+        123: 132305,
+        124: 132313,
+        125: 132313,
+        126: 132313,
+        127: 134468,
+        128: 134468,
+      };
+      var lineTimeArr = {
+        a18: {
+          start: 1,
+          stop: 3,
+        },
+        a19: {
+          start: 5,
+          stop: 7,
+        },
+        a20: {
+          start: 9,
+          stop: 11,
+        },
+        a27: {
+          start: 37,
+          stop: 39,
+        },
+        a29: {
+          start: 45,
+          stop: 47,
+        },
+        a33: {
+          start: 61,
+          stop: 65,
+        },
+        a36: {
+          start: 73,
+          stop: 77,
+        },
+        a39: {
+          start: 85,
+          stop: 89,
+        },
+        a42: {
+          start: 97,
+          stop: 99,
+        },
+        a43: {
+          start: 101,
+          stop: 105,
+        },
+        a45: {
+          start: 109,
+          stop: 113,
+        },
+        a47: {
+          start: 117,
+          stop: 122,
+        },
+        a49: {
+          start: 123,
+          stop: 127,
+        },
+        a18_SURFACE2: {
+          start: 2,
+          stop: 4,
+        },
+        a19_SURFACE2: {
+          start: 6,
+          stop: 8,
+        },
+        a20_SURFACE2: {
+          start: 10,
+          stop: 12,
+        },
+        a27_SURFACE2: {
+          start: 38,
+          stop: 40,
+        },
+        a29_SURFACE2: {
+          start: 46,
+          stop: 48,
+        },
+        a33_SURFACE2: {
+          start: 62,
+          stop: 66,
+        },
+        a36_SURFACE2: {
+          start: 74,
+          stop: 78,
+        },
+        a39_SURFACE2: {
+          start: 86,
+          stop: 90,
+        },
+        a42_SURFACE2: {
+          start: 98,
+          stop: 100,
+        },
+        a43_SURFACE2: {
+          start: 102,
+          stop: 106,
+        },
+        a45_SURFACE2: {
+          start: 110,
+          stop: 114,
+        },
+        a47_SURFACE2: {
+          start: 118,
+          stop: 124,
+        },
+        a49_SURFACE2: {
+          start: 125,
+          stop: 128,
+        },
+        a21: {
+          start: 13,
+          stop: 15,
+        },
+        a22: {
+          start: 17,
+          stop: 19,
+        },
+        a23: {
+          start: 21,
+          stop: 23,
+        },
+        a24: {
+          start: 25,
+          stop: 27,
+        },
+        a25: {
+          start: 29,
+          stop: 31,
+        },
+        a26: {
+          start: 33,
+          stop: 35,
+        },
+        a28: {
+          start: 41,
+          stop: 43,
+        },
+        a30: {
+          start: 49,
+          stop: 51,
+        },
+        a31: {
+          start: 53,
+          stop: 55,
+        },
+        a32: {
+          start: 57,
+          stop: 59,
+        },
+        a34: {
+          start: 63,
+          stop: 67,
+        },
+        a35: {
+          start: 69,
+          stop: 71,
+        },
+        a37: {
+          start: 75,
+          stop: 79,
+        },
+        a38: {
+          start: 81,
+          stop: 83,
+        },
+        a40: {
+          start: 87,
+          stop: 91,
+        },
+        a41: {
+          start: 93,
+          stop: 95,
+        },
+        a44: {
+          start: 103,
+          stop: 107,
+        },
+        a46: {
+          start: 111,
+          stop: 115,
+        },
+        a48: {
+          start: 119,
+          stop: 126,
+        },
+        a21_SURFACE2: {
+          start: 14,
+          stop: 16,
+        },
+        a22_SURFACE2: {
+          start: 18,
+          stop: 20,
+        },
+        a23_SURFACE2: {
+          start: 22,
+          stop: 24,
+        },
+        a24_SURFACE2: {
+          start: 26,
+          stop: 28,
+        },
+        a25_SURFACE2: {
+          start: 30,
+          stop: 32,
+        },
+        a26_SURFACE2: {
+          start: 34,
+          stop: 36,
+        },
+        a28_SURFACE2: {
+          start: 42,
+          stop: 44,
+        },
+        a30_SURFACE2: {
+          start: 50,
+          stop: 52,
+        },
+        a31_SURFACE2: {
+          start: 54,
+          stop: 56,
+        },
+        a32_SURFACE2: {
+          start: 58,
+          stop: 60,
+        },
+        a34_SURFACE2: {
+          start: 64,
+          stop: 68,
+        },
+        a35_SURFACE2: {
+          start: 70,
+          stop: 72,
+        },
+        a37_SURFACE2: {
+          start: 76,
+          stop: 80,
+        },
+        a38_SURFACE2: {
+          start: 82,
+          stop: 84,
+        },
+        a40_SURFACE2: {
+          start: 88,
+          stop: 92,
+        },
+        a41_SURFACE2: {
+          start: 94,
+          stop: 96,
+        },
+        a44_SURFACE2: {
+          start: 104,
+          stop: 108,
+        },
+        a46_SURFACE2: {
+          start: 112,
+          stop: 116,
+        },
+        a48_SURFACE2: {
+          start: 120,
+          stop: 121,
+        },
+      };
+
+      $(document).ready(function () {
+        setColors();
+        setData();
+        for (pid in tierArr) {
+          if (tierArr.hasOwnProperty(pid)) {
+            var showSpeaker = false;
+            var tiers = tierArr[pid].tiers;
+            for (tid in tiers) {
+              if (tiers.hasOwnProperty(tid)) {
+                if (tierShowArr.indexOf(tid) === -1) {
+                  if (dataArr[tid]) {
+                    var display = dataArr[tid].display;
+                    if (display !== "nodisplay") {
+                      showSpeaker = true;
+                      tierShowArr.push(tid);
+                    }
+                  }
+                }
+              }
+            }
+            if (speakerShowArr.indexOf(pid) === -1 && showSpeaker) {
+              var checkboxId = "check-tier-" + pid;
+              if (document.getElementById(checkboxId)) {
+                speakerShowArr.push(pid);
+                document.getElementById(checkboxId).checked = true;
+              }
+            }
+          }
+        }
+        setTranscriptionBox();
+        initial_time = 7.746;
+        initial_time_end = 7.746;
+        media = document.getElementById("sync_player");
+        media.setAttribute("ontimeupdate", "sync(this.currentTime)");
+        media.setAttribute("onmousemove", "sync(this.currentTime)");
+        media.setAttribute("onclick", "sync(this.currentTime)");
+        setPlayer();
+        //primePlayer();
+        document.getElementById("sync_player").onmousemove();
+      });
+
+      function alertMLoadErr() {
+        document.getElementById("innertext").innerHTML =
+          "<h1>Failed to open media file</h1>";
+      }
+
+      function setColors() {
+        for (pid in tierArr) {
+          //pid == $speaker
+          var tiers = tierArr[pid].tiers;
+          for (tid in tiers) {
+            //tid == $a_tier['TIER_ID']
+            if (dataArr[tid] && dataArr[tid].color) {
+              tierArr[pid].tiers[tid].color = dataArr[tid].color;
+            }
+          }
+        }
+      }
+
+      function setData() {
+        transArr = [];
+        glossArr = [];
+        for (pid in tierArr) {
+          //pid == $speaker
+          var tiers = tierArr[pid].tiers;
+          for (tid in tiers) {
+            //tid == $a_tier['TIER_ID']
+            var spkr = tiers[tid].code;
+            var color = tiers[tid].color;
+            if (dataArr[tid]) {
+              var display = dataArr[tid].display;
+              var lines = dataArr[tid].lines;
+              for (l in lines) {
+                var lineref = lines[l].lineref;
+                var start = lineTimeArr[lineref].start;
+                if (display === "bottom") {
+                  if (!transArr[start]) transArr[start] = [];
+                  if (!transArr[start][tid]) transArr[start][tid] = [];
+                  transArr[start][tid]["speaker"] = pid;
+                  transArr[start][tid]["color"] = color;
+                  transArr[start][tid]["lineref"] = lineref;
+                  transArr[start][tid]["start"] = lines[l].start;
+                  transArr[start][tid]["stop"] = lines[l].stop;
+                  transArr[start][tid]["spkr"] = spkr;
+                  transArr[start][tid]["id"] = l;
+                  transArr[start][tid]["value"] = lines[l].value;
+                } else {
+                  if (!glossArr[lineref]) glossArr[lineref] = [];
+                  if (!glossArr[lineref][tid]) glossArr[lineref][tid] = [];
+                  if (!glossArr[lineref][tid][l])
+                    glossArr[lineref][tid][l] = [];
+                  glossArr[lineref][tid][l]["speaker"] = pid;
+                  glossArr[lineref][tid][l]["color"] = color;
+                  glossArr[lineref][tid][l]["spkr"] = spkr;
+                  glossArr[lineref][tid][l]["value"] = lines[l].value;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      function setTranscriptionBox() {
+        var innerHtml = '<div class="divTable scrollTableCont">';
+        for (t in transArr) {
+          for (s in transArr[t]) {
+            var speaker = transArr[t][s]["speaker"];
+            if (
+              tierShowArr.indexOf(s) !== -1 &&
+              speakerShowArr.indexOf(speaker) !== -1
+            ) {
+              var color = transArr[t][s]["color"];
+              var lineref = transArr[t][s]["lineref"];
+              var start = transArr[t][s]["start"];
+              var stop = transArr[t][s]["stop"];
+              var spkr = transArr[t][s]["spkr"];
+              var id = transArr[t][s]["id"];
+              var value = transArr[t][s]["value"];
+              innerHtml +=
+                '<div name="bottom-' +
+                lineref +
+                '" class="divTableRow" style="color:#' +
+                color +
+                '" data-start="' +
+                start +
+                '" data-stop="' +
+                stop +
+                '"><div class="divTableCell spkr">' +
+                spkr +
+                '</div><div class="divTableCell spkn" id="' +
+                id +
+                '">' +
+                value +
+                "</div></div>";
+            }
+          }
+        }
+        innerHtml += "</div>";
+        document.getElementById("txt_lns").innerHTML = innerHtml;
+      }
+
+      function setPlayer() {
+        var i = 0;
+        for (l in lineTimeArr) {
+          ts_start_time_array[i] = timeslotArr[lineTimeArr[l]["start"]] / 1000;
+          ts_stop_time_array[i] = timeslotArr[lineTimeArr[l]["stop"]] / 1000;
+          if (document.getElementsByName("bottom-" + l)) {
+            var element = document.getElementsByName("bottom-" + l)[0];
+            if (element)
+              element.childNodes[0].setAttribute(
+                "onclick",
+                "set_time_play_and_pause(" +
+                  ts_start_time_array[i] +
+                  ", " +
+                  ts_stop_time_array[i] +
+                  ")"
+              );
+          }
+          i++;
+        }
+        if (initial_time > 0) {
+          try {
+            set_time_play_and_pause(initial_time, initial_time_end);
+          } catch (error) {
+            media.addEventListener(
+              "canplay",
+              function () {
+                set_time_play_and_pause(initial_time, initial_time_end);
+              },
+              true
+            );
+          }
+        }
+      }
+
+      function set_time_play_and_pause(start_time, end_time) {
+        media.pause();
+        clearTimeout(sub_time);
+        play_time = Math.ceil((end_time - start_time) * 1000);
+        if (play_time > 0) {
+          media.currentTime = start_time;
+          media.play();
+          sub_time = setTimeout(function () {
+            media.pause();
+          }, play_time);
+        }
+      }
+
+      function sync(current_time) {
+        var txt_lns_rect = document
+          .getElementById("txt_lns")
+          .getBoundingClientRect();
+        var mid_point = 460;
+        var max_scroll = document.getElementById("txt_lns").scrollHeight - 470;
+        var ref_id;
+        var innerHtml = "";
+        var i = 0;
+        for (l in lineTimeArr) {
+          if (
+            current_time >= parseFloat(ts_start_time_array[i]) &&
+            current_time <= parseFloat(ts_stop_time_array[i])
+          ) {
+            if (document.getElementsByName("bottom-" + l)) {
+              var elements = document.getElementsByName("bottom-" + l);
+              for (e in elements) {
+                if (elements[e] instanceof Element) {
+                  elements[e].setAttribute("id", "txt-current_" + i);
+                  if (
+                    elements[e].getBoundingClientRect().bottom >
+                    txt_lns_rect.bottom
+                  ) {
+                    var scroll =
+                      elements[e].getBoundingClientRect().top -
+                      txt_lns_rect.top -
+                      10;
+                    document.getElementById("txt_lns").scrollTop += scroll;
+                  }
+                }
+              }
+            }
+            if (current_start_time != ts_start_time_array[i]) {
+              current_start_time = ts_start_time_array[i];
+              current_id_arr = [];
+              document.getElementById("txt_refs").innerHTML = "";
+            }
+            if (current_id_arr.indexOf(l) === -1) {
+              if (glossArr[l]) {
+                innerHtml = document.getElementById("txt_refs").innerHTML;
+                for (s in glossArr[l]) {
+                  if (tierShowArr.indexOf(s) !== -1) {
+                    for (n in glossArr[l][s]) {
+                      var speaker = glossArr[l][s][n]["speaker"];
+                      if (speakerShowArr.indexOf(speaker) !== -1) {
+                        var spkr = glossArr[l][s][n]["spkr"];
+                        var value = glossArr[l][s][n]["value"];
+                        var color = glossArr[l][s][n]["color"];
+                        innerHtml +=
+                          "<div class='divTableRow' style='color:#" +
+                          color +
+                          "'><div class='divTableCell spkr'>" +
+                          spkr +
+                          "</div><div class='divTableCell tran'>" +
+                          value +
+                          "</div></div>";
+                      }
+                    }
+                  }
+                }
+                document.getElementById("txt_refs").innerHTML = innerHtml;
+              }
+              current_id_arr.push(l);
+            }
+          } else {
+            try {
+              if (document.getElementsByName("bottom-" + l)) {
+                var elements = document.getElementsByName("bottom-" + l);
+                for (e in elements) {
+                  if (elements[e] instanceof Element) {
+                    elements[e].removeAttribute("id");
+                  }
+                }
+              }
+            } catch (err) {}
+          }
+          i++;
+        }
+      }
+
+      function changePresCheck(tierID) {
+        var eleName = "check-tier-" + tierID;
+        var idName = "check-tier-" + tierID;
+        var cbarray = document.getElementsByName(eleName);
+        var checked = document.getElementById(idName).checked;
+        for (i in cbarray) {
+          var tierName = cbarray[i].value;
+          cbarray[i].checked = checked;
+          if (tierName) toggleTier(tierName);
+        }
+      }
+
+      function changeTierCheck(tierID) {
+        var eleName = "check-tier-" + tierID;
+        var idName = "check-tier-" + tierID;
+        var cbarray = document.getElementsByName(eleName);
+        var tchecked = false;
+        for (i in cbarray) {
+          if (cbarray[i].checked === true && cbarray[i].value) tchecked = true;
+        }
+        document.getElementById(idName).checked = tchecked;
+      }
+
+      function restartPlayer() {
+        media.currentTime = 0;
+        document.getElementById("txt_refs").innerHTML = "";
+        var innerHtml = "";
+        var i = 0;
+        for (l in lineTimeArr) {
+          if (
+            0 >= parseFloat(ts_start_time_array[i]) &&
+            0 <= parseFloat(ts_stop_time_array[i])
+          ) {
+            current_start_time = ts_start_time_array[i];
+            current_id_arr = [];
+            document.getElementById("txt_refs").innerHTML = "";
+            if (current_id_arr.indexOf(l) === -1) {
+              if (glossArr[l]) {
+                innerHtml = document.getElementById("txt_refs").innerHTML;
+                for (s in glossArr[l]) {
+                  if (tierShowArr.indexOf(s) !== -1) {
+                    for (n in glossArr[l][s]) {
+                      var speaker = glossArr[l][s][n]["speaker"];
+                      if (speakerShowArr.indexOf(speaker) !== -1) {
+                        var spkr = glossArr[l][s][n]["spkr"];
+                        var value = glossArr[l][s][n]["value"];
+                        var color = glossArr[l][s][n]["color"];
+                        innerHtml +=
+                          "<div class='divTableRow' style='color:#" +
+                          color +
+                          "'><div class='divTableCell spkr'>" +
+                          spkr +
+                          "</div><div class='divTableCell tran'>" +
+                          value +
+                          "</div></div>";
+                      }
+                    }
+                  }
+                }
+                document.getElementById("txt_refs").innerHTML = innerHtml;
+              }
+              current_id_arr.push(l);
+            }
+          }
+          i++;
+        }
+      }
+
+      function toggleTier(tierID) {
+        var chkIdStr = "checkbox-" + tierID;
+        if (document.getElementById(chkIdStr).checked === true) {
+          tierShowArr.push(tierID);
+        } else {
+          var index = tierShowArr.indexOf(tierID);
+          tierShowArr.splice(index, 1);
+        }
+        restartPlayer();
+        setTranscriptionBox();
+        setPlayer();
+      }
+
+      function changeTierColor(color, speaker, tierID) {
+        var keyID = "key-" + tierID;
+        var selColor = "#" + color;
+        document.getElementById(keyID).style.color = selColor;
+        tierArr[speaker].tiers[tierID].color = color;
+        setData();
+        restartPlayer();
+        setTranscriptionBox();
+        setPlayer();
+      }
+
+      function changeTierPlacement(tierID) {
+        var idName = tierID + "-display";
+        var value = document.getElementById(idName).value;
+        dataArr[tierID].display = value;
+        setData();
+        restartPlayer();
+        setTranscriptionBox();
+        setPlayer();
+      }
+
+      function toggleSpeaker(spkr) {
+        var chkIdStr = "check-tier-" + spkr;
+        if (document.getElementById(chkIdStr).checked === true) {
+          speakerShowArr.push(spkr);
+        } else {
+          var index = speakerShowArr.indexOf(spkr);
+          speakerShowArr.splice(index, 1);
+        }
+        restartPlayer();
+        setTranscriptionBox();
+        setPlayer();
+      }
+
+      function toggleDisplayPanel() {
+        var display = document.getElementById("spkr_keys").style.display;
+        if (display === "none") {
+          document.getElementById("spkr_keys").style.display = "block";
+          document.getElementById("plusButton").style.display = "none";
+          document.getElementById("minusButton").style.display = "block";
+        }
+        if (display === "block") {
+          document.getElementById("spkr_keys").style.display = "none";
+          document.getElementById("plusButton").style.display = "flex";
+          document.getElementById("minusButton").style.display = "none";
+        }
+      }
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <table id="maintable" cellspacing="0">
+      <tr style="width: 100%">
+        <td class="middlecenter" colspan="3">
+          <div class="navpath">
+            <a href="../../index.php">Home</a> &gt;&gt;
+            <a href="index.php?collid=0">View EAF Files</a> &gt;&gt;
+            <b
+              >Mowih (<i>Justicia spicigera</i> Schltdl., Acanthaceae)
+              [<i>azz</i>] EAF Detail</b
+            >
+          </div>
+          <!-- This is inner text! -->
+          <div
+            id="innertext"
+            style="padding-left: 0px; padding-right: 0px; padding-top: 0px"
+          >
+            <div id="txt_sync_content">
+              <div id="player-title-box">
+                <h1>
+                  Mowih (<i>Justicia spicigera</i> Schltdl., Acanthaceae)
+                  [<i>azz</i>]
+                </h1>
+              </div>
+              <div id="spkr_keys_box">
+                <div
+                  style="float: left; cursor: pointer"
+                  onclick="toggleDisplayPanel();"
+                  title="Toggle Display Panel"
+                >
+                  <div
+                    id="plusButton"
+                    style="display: flex; align-items: center"
+                  >
+                    <img
+                      style="border: 0px; margin-right: 8px"
+                      src="img/plus.png"
+                    />
+                    (Open to customize display)
+                  </div>
+                  <img
+                    id="minusButton"
+                    style="border: 0px; display: none"
+                    src="img/minus.png"
+                  />
+                </div>
+
+                <div id="spkr_keys" style="display: none; margin-left: 50px">
+                  
+                  <!-- PADRE TIER - PARTICIPANT 01 -->
+                  <div style="clear: both; display: flex; align-items: center">
+                    <input
+                      type="checkbox"
+                      class="check-pres"
+                      style="margin-right: 8px"
+                      id="check-tier-Rubén Macario Martínez"
+                      value="Rubén Macario Martínez"
+                      onchange='changePresCheck("Rubén Macario Martínez");toggleSpeaker("Rubén Macario Martínez");'
+                    />
+                    <span class="spkr_name">Rubén Macario Martínez</span>
+                  </div>
+                  <!-- Hijo Tier 01-->
+                  <div
+                    style="
+                      clear: both;
+                      margin-left: 20px;
+                      display: flex;
+                      align-items: center;">
+                    <input
+                      type="checkbox"
+                      style="margin-right: 8px"
+                      class="check-tier"
+                      name="check-tier-Rubén Macario Martínez"
+                      id="checkbox-Rubén Macario Martínez"
+                      onchange='changeTierCheck("Rubén Macario Martínez");toggleTier("Rubén Macario Martínez");'
+                      value="Rubén Macario Martínez"
+                      checked
+                    />
+                    <input
+                      id="color-Rubén Macario Martínez"
+                      class="color"
+                      style="
+                        cursor: pointer;
+                        border: 1px black solid;
+                        height: 14px;
+                        width: 14px;
+                        font-size: 0px;
+                        margin-right: 8px;
+                      "
+                      value="9bf786"
+                      onchange='changeTierColor(this.value,"Rubén Macario Martínez","Rubén Macario Martínez");'
+                    />
+                    <span
+                      id="key-Rubén Macario Martínez"
+                      class="spkr_key"
+                      style="color: #9bf786; margin-right: 8px"
+                      >RMM</span>
+                    <span style="margin-right: 8px">&middot;</span>
+                    <span class="spkr_name" style="margin-right: 8px"
+                      >Rubén Macario Martínez (transcription)</span
+                    >
+                    <select
+                      id="Rubén Macario Martínez-display"
+                      style="margin-left: 10px"
+                      onchange="changeTierPlacement('Rubén Macario Martínez');"
+                    >
+                      <option value="top">One-line display</option>
+                      <option value="bottom" selected>Scrolling</option>
+                    </select>
+                  </div>
+
+                  <!-- Hijo Tier 02-->
+                  <div
+                    style="
+                      clear: both;
+                      margin-left: 20px;
+                      display: flex;
+                      align-items: center;
+                    ">
+                    <input
+                      type="checkbox"
+                      style="margin-right: 8px"
+                      class="check-tier"
+                      name="check-tier-Rubén Macario Martínez"
+                      id="checkbox-RMM Traducción"
+                      onchange='changeTierCheck("Rubén Macario Martínez");toggleTier("RMM Traducción");'
+                      value="RMM Traducción"
+                      checked/>
+                    <input
+                      id="color-RMM Traducción"
+                      class="color"
+                      style="
+                        cursor: pointer;
+                        border: 1px black solid;
+                        height: 14px;
+                        width: 14px;
+                        font-size: 0px;
+                        margin-right: 8px;
+                      "
+                      value="fbf4dd"
+                      onchange='changeTierColor(this.value,"Rubén Macario Martínez","RMM Traducción");'/>
+                    <span
+                      id="key-RMM Traducción"
+                      class="spkr_key"
+                      style="color: #fbf4dd; margin-right: 8px"
+                      >RMM</span>
+                      <span style="margin-right: 8px">&middot;</span>
+                      <span class="spkr_name" style="margin-right: 8px">
+                        RMM Traducción</span>
+                    <select
+                      id="RMM Traducción-display"
+                      style="margin-left: 10px"
+                      onchange="changeTierPlacement('RMM Traducción');">
+                      <option value="top" selected>One-line display</option>
+                      <option value="bottom">Scrolling</option>
+                    </select>
+                  </div>
+                  <!-- PADRE TIER - PARTICIPANT 02-->
+                  <div style="clear: both; display: flex; align-items: center">
+                    A
+                    <input
+                      type="checkbox"
+                      class="check-pres"
+                      style="margin-right: 8px"
+                      id="check-tier-María Salazar Osollo"
+                      value="María Salazar Osollo"
+                      onchange='changePresCheck("María Salazar Osollo");toggleSpeaker("María Salazar Osollo");'
+                    />
+                    <span class="spkr_name">María Salazar Osollo</span>
+                  </div>
+                  <div
+                    style="
+                      clear: both;
+                      margin-left: 20px;
+                      display: flex;
+                      align-items: center;
+                    "
+                  >
+                    <input
+                      type="checkbox"
+                      style="margin-right: 8px"
+                      class="check-tier"
+                      name="check-tier-María Salazar Osollo"
+                      id="checkbox-María Salazar Osollo"
+                      onchange='changeTierCheck("María Salazar Osollo");toggleTier("María Salazar Osollo");'
+                      value="María Salazar Osollo"
+                      checked
+                    />
+                    <input
+                      id="color-María Salazar Osollo"
+                      class="color"
+                      style="
+                        cursor: pointer;
+                        border: 1px black solid;
+                        height: 14px;
+                        width: 14px;
+                        font-size: 0px;
+                        margin-right: 8px;
+                      "
+                      value="89b681"
+                      onchange='changeTierColor(this.value,"María Salazar Osollo","María Salazar Osollo");'
+                    />
+                    <span
+                      id="key-María Salazar Osollo"
+                      class="spkr_key"
+                      style="color: #89b681; margin-right: 8px"
+                      >MSO</span
+                    ><span style="margin-right: 8px">&middot;</span
+                    ><span class="spkr_name" style="margin-right: 8px"
+                      >María Salazar Osollo (transcription)</span
+                    ><select
+                      id="María Salazar Osollo-display"
+                      style="margin-left: 10px"
+                      onchange="changeTierPlacement('María Salazar Osollo');"
+                    >
+                      <option value="top">One-line display</option>
+                      <option value="bottom" selected>Scrolling</option>
+                    </select>
+                  </div>
+                  <div
+                    style="
+                      clear: both;
+                      margin-left: 20px;
+                      display: flex;
+                      align-items: center;
+                    "
+                  >
+                    <input
+                      type="checkbox"
+                      style="margin-right: 8px"
+                      class="check-tier"
+                      name="check-tier-María Salazar Osollo"
+                      id="checkbox-MSO Traducción"
+                      onchange='changeTierCheck("María Salazar Osollo");toggleTier("MSO Traducción");'
+                      value="MSO Traducción"
+                      checked
+                    />
+                    <input
+                      id="color-MSO Traducción"
+                      class="color"
+                      style="
+                        cursor: pointer;
+                        border: 1px black solid;
+                        height: 14px;
+                        width: 14px;
+                        font-size: 0px;
+                        margin-right: 8px;
+                      "
+                      value="9eb4e7"
+                      onchange='changeTierColor(this.value,"María Salazar Osollo","MSO Traducción");'
+                    />
+                    <span
+                      id="key-MSO Traducción"
+                      class="spkr_key"
+                      style="color: #9eb4e7; margin-right: 8px"
+                      >MSO</span
+                    ><span style="margin-right: 8px">&middot;</span
+                    ><span class="spkr_name" style="margin-right: 8px"
+                      >MSO Traducción</span
+                    ><select
+                      id="MSO Traducción-display"
+                      style="margin-left: 10px"
+                      onchange="changeTierPlacement('MSO Traducción');"
+                    >
+                      <option value="top" selected>One-line display</option>
+                      <option value="bottom">Scrolling</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- PLAYER -->
+              <div
+                id="player_area"
+                style="width: 100%; margin-left: auto; margin-right: auto"
+              >
+                <audio
+                  onclick="sync(this.currentTime)"
+                  onmousemove="sync(this.currentTime)"
+                  ontimeupdate="sync(this.currentTime)"
+                  id="sync_player"
+                  controls="true"
+                >
+                  <source
+                    src="https://cdn.glitch.com/120f087f-0e29-4163-9f0b-687d6b040d37%2Fasset01.mp3?v=1608405042333"
+                    type="audio/mpeg"
+                    onerror="alertMLoadErr();"
+                  />
+                </audio>
+              </div>
+              <div id="gloss-box">
+                <div id="txt_refs" class="divTable glossTable"></div>
+              </div>
+              <div id="txt_lns" class="scrollTable"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

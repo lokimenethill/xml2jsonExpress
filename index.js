@@ -23,7 +23,7 @@ app.get('/working/dataArr', (req, res) => {
   for (let i = 0; i < tiersjson.length; i++) {
     var participants = jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['PARTICIPANT'];
     var lines = jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['ANNOTATION'];
-
+    
     var lines_json = {};
     for (let x = 0; x < lines.length; x++) {
       var line_ref =

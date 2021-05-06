@@ -18,17 +18,20 @@ function getRandomColor() {
  */
 function getTimeSlotArray(eaf)
 {
-  const timeSlots = eaf["ANNOTATION_DOCUMENT"]["TIME_ORDER"][0]["TIME_SLOT"];
+  const timeSlots = eaf["ANNOTATION_DOCUMENT"]["TIME_ORDER"]["TIME_SLOT"];
   const timeArray = timeSlots.reduce((previous, current, index) => {
     let obj = previous;
-    obj[++index + ""] = Number(current["$"]["TIME_VALUE"]);
+    obj[++index + ""] = Number(current["TIME_VALUE"]);
     return obj;
   }, {});
   return timeArray;
 }
 
-function getDataArray(eaf, timeSlotArray, lineTimeArray)
+function getDataArray(eaf)
 {
+  let timeSlotArray = getTimeSlotArray(eaf);
+  let lineTimeArray = getLineTimeArray(eaf);
+  
   const tiers = eaf["ANNOTATION_DOCUMENT"]["TIER"];
   const dataArray = tiers.reduce((prevTier, currTier, idx) => {
     let tiers = prevTier;
@@ -39,32 +42,33 @@ function getDataArray(eaf, timeSlotArray, lineTimeArray)
     // Getting anotations per tier
     let annotationType = Object.keys(currTier["ANNOTATION"][0])[0];
     let annotations = currTier["ANNOTATION"];
+    console.dir(`> Anotation Type: ${annotationType}`);
     
     // Forming lines
     let lines = annotations.reduce((prevLine, currLine, index)=>{
       let nLines = prevLine;
-      let line = currLine[annotationType][0];
-      let lineRef1 = line["$"]["ANNOTATION_ID"]
-      let lineRef2 = line["$"]["ANNOTATION_REF"] ? line["$"]["ANNOTATION_REF"] : line["$"]["ANNOTATION_ID"];
+      let line = currLine[annotationType];
+      let lineRef1 = line["ANNOTATION_ID"]
+      let lineRef2 = line["ANNOTATION_REF"] ? line["ANNOTATION_REF"] : line["ANNOTATION_ID"];
       let start = "";
       let stop = "";
-      if(line["$"]["TIME_SLOT_REF1"]){
-        let timeSlotString = line["$"]["TIME_SLOT_REF1"]; 
+      if(line["TIME_SLOT_REF1"]){
+        let timeSlotString = line["TIME_SLOT_REF1"]; 
         timeSlotString = timeSlotString.replace("ts",""); 
         start = timeSlotArray[timeSlotString]/1000;
         
-        timeSlotString = line["$"]["TIME_SLOT_REF2"];
+        timeSlotString = line["TIME_SLOT_REF2"];
         timeSlotString = timeSlotString.replace("ts","");
         timeSlotString = (Number(timeSlotString) - 1).toString();
         stop = timeSlotArray[timeSlotString]/1000;
       }else{
-        lineRef2 = line["$"]["ANNOTATION_REF"];
+        lineRef2 = line["ANNOTATION_REF"];
         let timeObj = lineTimeArray[lineRef2];
         start = Number(timeSlotArray[timeObj.start.toString()])/1000;
         stop = Number(timeSlotArray[timeObj.stop.toString()])/1000;
       }
       
-      let timeSlotString = line["$"]["TIME_SLOT_REF1"] || line["$"]["ANNOTATION_REF"];
+      let timeSlotString = line["TIME_SLOT_REF1"] || line["ANNOTATION_REF"];
       timeSlotString = timeSlotString.replace("ts","").replace("a","");
       
       let timeSlot = timeSlotArray[timeSlotString]/1000;
@@ -73,7 +77,7 @@ function getDataArray(eaf, timeSlotArray, lineTimeArray)
         "lineref" : lineRef2,
         "start": start,
         "stop": stop,
-        "value": line["ANNOTATION_VALUE"][0]
+        "value": line["ANNOTATION_VALUE"]
       }
       return nLines;
     },{});
@@ -81,17 +85,19 @@ function getDataArray(eaf, timeSlotArray, lineTimeArray)
     let display = currTier["ANNOTATION"][0]["REF_ANNOTATION"] ? "top" : "bottom";
     
     // Forming Tier
-    tiers[currTier["$"]["TIER_ID"]] = {
+    tiers[currTier["TIER_ID"]] = {
       "display" : display,
-      "color" : "",
+      "color" : getRandomColor(),
       "lines" : lines,
     };
     return tiers;
   },{});
+
   return dataArray;
 }
 
 function getLineTimeArray(eaf){
+
   const tiers = eaf["ANNOTATION_DOCUMENT"]["TIER"];
   // Creating Result Object
   let lineTimeArray = {};
@@ -106,9 +112,9 @@ function getLineTimeArray(eaf){
       let annotationType = Object.keys(annotation)[0];
       if(annotationType === "ALIGNABLE_ANNOTATION"){
         // Getting Annotation ID
-        let aid = annotation["ALIGNABLE_ANNOTATION"][0]["$"]["ANNOTATION_ID"];
-        let start = Number(annotation["ALIGNABLE_ANNOTATION"][0]["$"]["TIME_SLOT_REF1"].replace("ts",""));
-        let stop  = Number(annotation["ALIGNABLE_ANNOTATION"][0]["$"]["TIME_SLOT_REF2"].replace("ts",""));
+        let aid = annotation["ALIGNABLE_ANNOTATION"]["ANNOTATION_ID"];
+        let start = Number(annotation["ALIGNABLE_ANNOTATION"]["TIME_SLOT_REF1"].replace("ts",""));
+        let stop  = Number(annotation["ALIGNABLE_ANNOTATION"]["TIME_SLOT_REF2"].replace("ts",""));
         // 
         lineTimeArray[aid] = {
           "start": start,
@@ -117,6 +123,7 @@ function getLineTimeArray(eaf){
       }
     });
   });
+
   return lineTimeArray;
 }
 

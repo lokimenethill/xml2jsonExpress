@@ -1,100 +1,58 @@
 const express = require('express');
 const app = express();
-
+const eafTools = require('./eafTools');
 var parser = require('xml2json');
 var fs = require('fs');
 const { Console } = require('console');
-var xml = fs.readFileSync('a.eaf', 'utf8');
 
-//var xml = "<foo attr=\"value\">bar</foo>";
-//console.log("input -> %s", xml)
+// Reading the file
+let eafXml = fs.readFileSync('./originals/a01.eaf', 'utf8');
+var eafJs = JSON.parse(parser.toJson(eafXml));
 
-// xml to json
-
-/* 
-// json to xml
-var xml = parser.toXml(json);
-console.log("back to xml -> %s", xml)*/
-app.get('/working/dataArr', (req, res) => {
-  var jsonxml = JSON.parse(parser.toJson(xml));
-  //console.log(jsonxml['ANNOTATION_DOCUMENT']['TIER'][0]['PARTICIPANT']);
-  var tiersjson = jsonxml['ANNOTATION_DOCUMENT']['TIER'];
-  var json_objetivo = {};
-  for (let i = 0; i < tiersjson.length; i++) {
-    var participants = jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['PARTICIPANT'];
-    var lines = jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['ANNOTATION'];
-    
-    var lines_json = {};
-    for (let x = 0; x < lines.length; x++) {
-      var line_ref =
-        jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['ANNOTATION'][x][
-          'REF_ANNOTATION'
-        ];
-      lines_json[line_ref] = lines;
-      console.log(JSON.stringify(line_ref));
-    }
-
-    json_objetivo[participants] = lines_json;
-
-    json_objetivo;
-  }
-  //console.log(json_objetivo);
-  //console.log("to json -> %s", json);
-  res.json(json_objetivo);
+app.get('/res/timeslotArr', (req, res) => {
+  let timeslotArr = eafTools.getTimeSlotArray(eafJs);
+  res.json(timeslotArr);
 });
 
-app.get('/working/lineTimeArr', (req, res) => {
-  var jsonxml = JSON.parse(parser.toJson(xml));
-  //console.log(jsonxml['ANNOTATION_DOCUMENT']['TIER'][0]['PARTICIPANT']);
-  var tiersjson = jsonxml['ANNOTATION_DOCUMENT']['TIER'];
-  var json_objetivo = [];
-  for (let i = 0; i < tiersjson.length; i++) {
-    var participants = jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['PARTICIPANT'];
-    json_objetivo.push(
-      jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['PARTICIPANT'],
-    );
-    var lines = jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['ANNOTATION'];
-    json_objetivo.push(lines);
-  }
-  console.log(json_objetivo);
-  //console.log("to json -> %s", json);
-  res.json(json_objetivo);
+app.get('/res/dataArr', (req, res) => {
+  let dataArr = eafTools.getDataArray(eafJs);
+  res.json(dataArr);
+});
+
+app.get('/res/lineTimeArr', (req, res) => {
+  let lineTimeArr = eafTools.getLineTimeArray(eafJs)
+  res.json(lineTimeArr);
 });
 
 app.get('/', (req, res) => {
-  var jsonxml = JSON.parse(parser.toJson(xml));
+  
+  eafJs = JSON.parse(parser.toJson(eafXml));
   //console.log("to json -> %s", json);
-  res.json(jsonxml);
+  res.json(eafJs);
 });
 
-app.get('/compare/dataArr', (req, res) => {
-  var compare = fs.readFileSync('dataArr.json');
-  var json = JSON.parse(compare);
-
-  //console.log("to json -> %s", json);
-  res.json(json);
+app.get('/org/dataArr', (req, res) => {
+  let dataArr = require('./originals/dataArr.json')
+  res.json(dataArr);
 });
 
-app.get('/compare/lineTimeArr', (req, res) => {
-  var compare = fs.readFileSync('lineTimeArr.json');
-  var json = JSON.parse(compare);
-  //console.log("to json -> %s", json);
-  res.json(json);
+app.get('/org/tierArr', (req, res) => {
+  let tierArr = require('./originals/tierArr.json')
+  res.json(tierArr);
 });
 
-app.get('/compare/timeArr', (req, res) => {
-  var compare = fs.readFileSync('timeArr.json');
-  var json = JSON.parse(compare);
-  //console.log("to json -> %s", json);
-  res.json(json);
+app.get('/org/timeslotArr', (req, res) => {
+  let timeslotArr = require('./originals/timeslotArr.json')
+  res.json(timeslotArr);
 });
 
-app.get('/compare/timeslotArr', (req, res) => {
-  var compare = fs.readFileSync('timeslotArr.json');
-  var json = JSON.parse(compare);
-  //console.log("to json -> %s", json);
-  res.json(json);
+app.get('/org/lineTimeArr', (req, res) => {
+  let lineTimeArr = require('./originals/lintetimeArr.json')
+  res.json(lineTimeArr);
 });
-app.listen(8080, () => {
-  console.log(`Example app listening at http://localhost:8080`);
+
+// Starting Server
+const port = 3000
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });

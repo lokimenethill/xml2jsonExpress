@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "d:s": "nodemon index.js",
-    "w:s": "nodemon index.js",
+    "w:d": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

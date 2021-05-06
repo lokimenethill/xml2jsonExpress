@@ -26,15 +26,18 @@ console.log("back to xml -> %s", xml)*/
 app.get('/working/dataArr', (req, res) => {
   var jsonxml = parser.toJson(xml,options);
   
-  function pull_time_orders(jsonxmlparser){
-    var temp_json = jsonxmlparser['ANNOTATION_DOCUMENT']['TIME_ORDER']['TIME_SLOT']
-  }
+ 
+  //time order
+  var timeOrder =jsonxml['ANNOTATION_DOCUMENT']['TIME_ORDER']
+  
+  console.log(JSON.stringify(timeOrder));
   //console.log(jsonxml['ANNOTATION_DOCUMENT']['TIER'][0]['PARTICIPANT']);
   var tiersjson = jsonxml['ANNOTATION_DOCUMENT']['TIER'];
   var json_objetivo = {};
   for (let i = 0; i < tiersjson.length; i++) {
-    var participants = jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['PARTICIPANT'];
-    var lines = jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['ANNOTATION'];
+    var tiers = jsonxml['ANNOTATION_DOCUMENT']['TIER'][i];
+    var participants = tiers['PARTICIPANT'];
+    var lines = tiers['ANNOTATION'];
     var lines_json = {};
     var line_ref={}
     var sort_lines = {}
@@ -43,7 +46,7 @@ app.get('/working/dataArr', (req, res) => {
         
         json_objetivo[participants]= line_ref;
       lines_json[participants] = lines;
-      console.log(JSON.stringify(line_ref));
+     // console.log(JSON.stringify(line_ref));
     }
 
     //json_objetivo[participants] = lines_json;
@@ -69,6 +72,20 @@ app.get('/working/lineTimeArr', (req, res) => {
     json_objetivo.push(lines);
   }
   console.log(json_objetivo);
+  //console.log("to json -> %s", json);
+  res.json(json_objetivo);
+});
+app.get('/working/timeslotArr', (req, res) => {
+  var jsonxml = parser.toJson(xml,options);
+  //console.log(jsonxml['ANNOTATION_DOCUMENT']['TIER'][0]['PARTICIPANT']);
+  var timeslot = jsonxml['ANNOTATION_DOCUMENT']['TIME_ORDER']['TIME_SLOT'];
+  var json_objetivo ={}
+  var index=1;
+  for(let x= 0;x<timeslot.length;x++){
+    json_objetivo[index]= parseInt(timeslot[x]['TIME_VALUE'],10);
+    console.log(x);
+    index++;
+  }
   //console.log("to json -> %s", json);
   res.json(json_objetivo);
 });

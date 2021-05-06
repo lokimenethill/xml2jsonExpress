@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const eafTools = require('./eafTools');
+const eafTools = require('./helpers/eafTools');
 var parser = require('xml2json');
 var fs = require('fs');
 const { Console } = require('console');

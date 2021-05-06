@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const eafTools = require('./helpers/eafTools');
 var parser = require('xml2json');
 var fs = require('fs');
@@ -8,6 +9,9 @@ const { Console } = require('console');
 // Reading the file
 let eafXml = fs.readFileSync('./originals/a01.eaf', 'utf8');
 var eafJs = JSON.parse(parser.toJson(eafXml));
+
+// Adding static files
+app.use(express.static(path.join(__dirname,'public')));
 
 app.get('/res/timeslotArr', (req, res) => {
   let timeslotArr = eafTools.getTimeSlotArray(eafJs);

@@ -132,15 +132,7 @@
         display: table-cell;
       }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/shared.js"></script>
-    <script src="js/jscolor.js"></script>
-    
+
     <title>Document</title>
   </head>
   <body>
@@ -148,32 +140,34 @@
     <!-- EAF VIWER -->
     <table id="maintable" cellspacing="0">
       <tr style="width: 100%">
+        
         <td class="middlecenter" colspan="3">
           <!-- EAF TITLE -->
           <div
             id="innertext"
             style="padding-left: 0px; padding-right: 0px; padding-top: 0px">
+
             <div id="txt_sync_content">
+
               <div id="player-title-box">
                 <h1>
                   I³ta² sa³in⁴ ta³ta² (<i>Gomphrena serrata</i> L. por Raúl
                   Felipe Margarito (Yoloxóchitl mixteco, <i>yolo1241</i>)
                 </h1>
               </div>
+
+              <!-- Speaker Panel -->
               <div id="spkr_keys_box">
                 <div
                   style="float: left; cursor: pointer"
                   onclick="toggleDisplayPanel();"
-                  title="Toggle Display Panel"
-                >
+                  title="Toggle Display Panel">
                   <div
                     id="plusButton"
-                    style="display: flex; align-items: center"
-                  >
+                    style="display: flex; align-items: center">
                     <img
                       style="border: 0px; margin-right: 8px"
-                      src="img/plus.png"
-                    />
+                      src="img/plus.png"/>
                     (Open to customize display)
                   </div>
                   <img
@@ -187,7 +181,6 @@
                   <!-- PADRE TIER - PARTICIPANT 01 -->
                   <div 
                     style="clear: both; display: flex; align-items: center">
-                    <!-- HBS INPUT -->
                     <input
                       type="checkbox"
                       class="check-pres"
@@ -205,7 +198,7 @@
                       margin-left: 20px;
                       display: flex;
                       align-items: center;">
-                    <!-- HBS INPUT -->
+                    <!-- INPUT 1 -->
                     <input
                       type="checkbox"
                       style="margin-right: 8px"
@@ -215,7 +208,7 @@
                       onchange='changeTierCheck("Rey Castillo García");toggleTier("Rey Castillo García");'
                       value="Rey Castillo García"
                       checked/>
-                    <!-- HBS INPUT -->
+                    <!-- INPUT 2 -->
                     <input
                       id="color-Rey Castillo García"
                       class="color"
@@ -225,26 +218,30 @@
                         height: 14px;
                         width: 14px;
                         font-size: 0px;
-                        margin-right: 8px;
-                      "
+                        margin-right: 8px;"
                       value="5721EC"
-                      onchange='changeTierColor(this.value,"Rey Castillo García","Rey Castillo García");'
-                    />
-                    <!-- HBS INPUT -->
+                      onchange='changeTierColor(this.value,"Rey Castillo García","Rey Castillo García");'/>
+                    <!-- SPAN 1 -->
                     <span
                       id="key-Rey Castillo García"
                       class="spkr_key"
-                      style="color: #5721ec; margin-right: 8px"
-                      >RCG</span
-                    ><span style="margin-right: 8px">&middot;</span
-                    ><span class="spkr_name" style="margin-right: 8px"
-                      >Rey Castillo García (transcription)</span
-                    >
+                      style="color: #5721ec; margin-right: 8px">
+                      RCG
+                    </span>
+                    <!-- SPAN 2 -->
+                    <span style="margin-right: 8px">
+                      &middot;
+                    </span>
+                    <!-- SPAN 3 -->
+                    <span class="spkr_name"
+                    style="margin-right: 8px">
+                      Rey Castillo García (transcription)
+                    </span>
+                    <!-- Select 01 -->
                     <select
                       id="Rey Castillo García-display"
                       style="margin-left: 10px"
-                      onchange="changeTierPlacement('Rey Castillo García');"
-                    >
+                      onchange="changeTierPlacement('Rey Castillo García');">
                       <option value="top">One-line display</option>
                       <option value="bottom" selected>Scrolling</option>
                     </select>
@@ -264,8 +261,7 @@
                       name="check-tier-Rey Castillo García"
                       id="checkbox-Rey Castillo García Surface-2"
                       onchange='changeTierCheck("Rey Castillo García");toggleTier("Rey Castillo García Surface-2");'
-                      value="Rey Castillo García Surface-2"
-                    />
+                      value="Rey Castillo García Surface-2"/>
                     <input
                       id="color-Rey Castillo García Surface-2"
                       class="color"
@@ -511,6 +507,7 @@
                   </div>
 
                 </div>
+
               </div>
               
               <!-- PLAYER -->
@@ -529,19 +526,31 @@
                     onerror="alertMLoadErr();"/>
                 </audio>
               </div>
+
               <div id="gloss-box">
-                <div id="txt_refs" class="divTable glossTable"></div>
+                <div id="txt_refs" class="divTable glossTable">
+                </div>
               </div>
+              
               <div id="txt_lns" class="scrollTable"></div>
             </div>
+
           </div>
         </td>
+
       </tr>
     </table>
     <!-- EAF VIWER -->
 
     <!-- SCRIPTS -->
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/shared.js"></script>
+    <script src="js/jscolor.js"></script>
     <script type="text/javascript">
       var media;
       var ts_start_time_array = [];
@@ -1656,7 +1665,6 @@
           var tiers = tierArr[pid].tiers;
           for (tid in tiers) {
             //tid == $a_tier['TIER_ID']
-            console.log(`dataArr[tid].color: ${JSON.stringify(dataArr[tid])}`);
             if (dataArr[tid] && dataArr[tid].color) {
               tierArr[pid].tiers[tid].color = dataArr[tid].color;
             }

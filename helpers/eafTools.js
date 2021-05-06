@@ -42,7 +42,6 @@ function getDataArray(eaf)
     // Getting anotations per tier
     let annotationType = Object.keys(currTier["ANNOTATION"][0])[0];
     let annotations = currTier["ANNOTATION"];
-    console.dir(`> Anotation Type: ${annotationType}`);
     
     // Forming lines
     let lines = annotations.reduce((prevLine, currLine, index)=>{
@@ -83,10 +82,13 @@ function getDataArray(eaf)
     },{});
 
     let display = currTier["ANNOTATION"][0]["REF_ANNOTATION"] ? "top" : "bottom";
+
+    let displayBool = currTier["ANNOTATION"][0]["REF_ANNOTATION"] ? "selected" : "";
     
     // Forming Tier
     tiers[currTier["TIER_ID"]] = {
       "display" : display,
+      displayBool,
       "color" : getRandomColor(),
       "lines" : lines,
     };

@@ -7,14 +7,7 @@
     <link rel="icon" type="image/png" href="img/plus.png" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/shared.js"></script>
-    <script src="js/jscolor.js"></script>
+    
 
     <style type="text/css">
       div[id^="txt-current_"] {
@@ -141,6 +134,321 @@
         display: table-cell;
       }
     </style>
+
+    
+    <title>Document</title>
+  </head>
+  <body>
+
+    <!-- EAF VIWER -->
+    <table id="maintable" cellspacing="0">
+      <tr style="width: 100%">
+        <td class="middlecenter" colspan="3">
+          <div class="navpath">
+            <a href="../../index.php">Home</a> &gt;&gt;
+            <a href="index.php?collid=0">View EAF Files</a> &gt;&gt;
+            <b>
+              Mowih (<i>Justicia spicigera</i> Schltdl., Acanthaceae)
+              [<i>azz</i>] EAF Detail</b>
+          </div>
+          <!-- This is inner text! -->
+          <div
+            id="innertext"
+            style="padding-left: 0px; padding-right: 0px; padding-top: 0px"
+          >
+            <div id="txt_sync_content">
+              <div id="player-title-box">
+                <h1>
+                  Mowih (<i>Justicia spicigera</i> Schltdl., Acanthaceae)
+                  [<i>azz</i>]
+                </h1>
+              </div>
+              <div id="spkr_keys_box">
+                <div
+                  style="float: left; cursor: pointer"
+                  onclick="toggleDisplayPanel();"
+                  title="Toggle Display Panel"
+                >
+                  <div
+                    id="plusButton"
+                    style="display: flex; align-items: center"
+                  >
+                    <img
+                      style="border: 0px; margin-right: 8px"
+                      src="img/plus.png"
+                    />
+                    (Open to customize display)
+                  </div>
+                  <img
+                    id="minusButton"
+                    style="border: 0px; display: none"
+                    src="img/minus.png"
+                  />
+                </div>
+
+                <div id="spkr_keys" style="display: none; margin-left: 50px">
+                  
+                  <!-- PADRE TIER - PARTICIPANT 01 -->
+                  <div style="clear: both; display: flex; align-items: center">
+                    <input
+                      type="checkbox"
+                      class="check-pres"
+                      style="margin-right: 8px"
+                      id="check-tier-Rubén Macario Martínez"
+                      value="Rubén Macario Martínez"
+                      onchange='changePresCheck("Rubén Macario Martínez");toggleSpeaker("Rubén Macario Martínez");'
+                    />
+                    <span class="spkr_name">Rubén Macario Martínez</span>
+                  </div>
+                  <!-- Hijo Tier 01-->
+                  <div
+                    style="
+                      clear: both;
+                      margin-left: 20px;
+                      display: flex;
+                      align-items: center;">
+                    <input
+                      type="checkbox"
+                      style="margin-right: 8px"
+                      class="check-tier"
+                      name="check-tier-Rubén Macario Martínez"
+                      id="checkbox-Rubén Macario Martínez"
+                      onchange='changeTierCheck("Rubén Macario Martínez");toggleTier("Rubén Macario Martínez");'
+                      value="Rubén Macario Martínez"
+                      checked
+                    />
+                    <input
+                      id="color-Rubén Macario Martínez"
+                      class="color"
+                      style="
+                        cursor: pointer;
+                        border: 1px black solid;
+                        height: 14px;
+                        width: 14px;
+                        font-size: 0px;
+                        margin-right: 8px;
+                      "
+                      value="9bf786"
+                      onchange='changeTierColor(this.value,"Rubén Macario Martínez","Rubén Macario Martínez");'
+                    />
+                    <span
+                      id="key-Rubén Macario Martínez"
+                      class="spkr_key"
+                      style="color: #9bf786; margin-right: 8px"
+                      >RMM</span>
+                    <span style="margin-right: 8px">&middot;</span>
+                    <span class="spkr_name" style="margin-right: 8px"
+                      >Rubén Macario Martínez (transcription)</span
+                    >
+                    <select
+                      id="Rubén Macario Martínez-display"
+                      style="margin-left: 10px"
+                      onchange="changeTierPlacement('Rubén Macario Martínez');"
+                    >
+                      <option value="top">One-line display</option>
+                      <option value="bottom" selected>Scrolling</option>
+                    </select>
+                  </div>
+
+                  <!-- Hijo Tier 02-->
+                  <div
+                    style="
+                      clear: both;
+                      margin-left: 20px;
+                      display: flex;
+                      align-items: center;
+                    ">
+                    <input
+                      type="checkbox"
+                      style="margin-right: 8px"
+                      class="check-tier"
+                      name="check-tier-Rubén Macario Martínez"
+                      id="checkbox-RMM Traducción"
+                      onchange='changeTierCheck("Rubén Macario Martínez");toggleTier("RMM Traducción");'
+                      value="RMM Traducción"
+                      checked/>
+                    <input
+                      id="color-RMM Traducción"
+                      class="color"
+                      style="
+                        cursor: pointer;
+                        border: 1px black solid;
+                        height: 14px;
+                        width: 14px;
+                        font-size: 0px;
+                        margin-right: 8px;
+                      "
+                      value="fbf4dd"
+                      onchange='changeTierColor(this.value,"Rubén Macario Martínez","RMM Traducción");'/>
+                    <span
+                      id="key-RMM Traducción"
+                      class="spkr_key"
+                      style="color: #fbf4dd; margin-right: 8px"
+                      >RMM</span>
+                      <span style="margin-right: 8px">&middot;</span>
+                      <span class="spkr_name" style="margin-right: 8px">
+                        RMM Traducción</span>
+                    <select
+                      id="RMM Traducción-display"
+                      style="margin-left: 10px"
+                      onchange="changeTierPlacement('RMM Traducción');">
+                      <option value="top" selected>One-line display</option>
+                      <option value="bottom">Scrolling</option>
+                    </select>
+                  </div>
+                  <!-- PADRE TIER - PARTICIPANT 02-->
+                  <div style="clear: both; display: flex; align-items: center">
+                    A
+                    <input
+                      type="checkbox"
+                      class="check-pres"
+                      style="margin-right: 8px"
+                      id="check-tier-María Salazar Osollo"
+                      value="María Salazar Osollo"
+                      onchange='changePresCheck("María Salazar Osollo");toggleSpeaker("María Salazar Osollo");'
+                    />
+                    <span class="spkr_name">María Salazar Osollo</span>
+                  </div>
+                  <div
+                    style="
+                      clear: both;
+                      margin-left: 20px;
+                      display: flex;
+                      align-items: center;
+                    "
+                  >
+                    <input
+                      type="checkbox"
+                      style="margin-right: 8px"
+                      class="check-tier"
+                      name="check-tier-María Salazar Osollo"
+                      id="checkbox-María Salazar Osollo"
+                      onchange='changeTierCheck("María Salazar Osollo");toggleTier("María Salazar Osollo");'
+                      value="María Salazar Osollo"
+                      checked
+                    />
+                    <input
+                      id="color-María Salazar Osollo"
+                      class="color"
+                      style="
+                        cursor: pointer;
+                        border: 1px black solid;
+                        height: 14px;
+                        width: 14px;
+                        font-size: 0px;
+                        margin-right: 8px;
+                      "
+                      value="89b681"
+                      onchange='changeTierColor(this.value,"María Salazar Osollo","María Salazar Osollo");'
+                    />
+                    <span
+                      id="key-María Salazar Osollo"
+                      class="spkr_key"
+                      style="color: #89b681; margin-right: 8px"
+                      >MSO</span
+                    ><span style="margin-right: 8px">&middot;</span
+                    ><span class="spkr_name" style="margin-right: 8px"
+                      >María Salazar Osollo (transcription)</span
+                    ><select
+                      id="María Salazar Osollo-display"
+                      style="margin-left: 10px"
+                      onchange="changeTierPlacement('María Salazar Osollo');"
+                    >
+                      <option value="top">One-line display</option>
+                      <option value="bottom" selected>Scrolling</option>
+                    </select>
+                  </div>
+                  <div
+                    style="
+                      clear: both;
+                      margin-left: 20px;
+                      display: flex;
+                      align-items: center;
+                    "
+                  >
+                    <input
+                      type="checkbox"
+                      style="margin-right: 8px"
+                      class="check-tier"
+                      name="check-tier-María Salazar Osollo"
+                      id="checkbox-MSO Traducción"
+                      onchange='changeTierCheck("María Salazar Osollo");toggleTier("MSO Traducción");'
+                      value="MSO Traducción"
+                      checked
+                    />
+                    <input
+                      id="color-MSO Traducción"
+                      class="color"
+                      style="
+                        cursor: pointer;
+                        border: 1px black solid;
+                        height: 14px;
+                        width: 14px;
+                        font-size: 0px;
+                        margin-right: 8px;
+                      "
+                      value="9eb4e7"
+                      onchange='changeTierColor(this.value,"María Salazar Osollo","MSO Traducción");'
+                    />
+                    <span
+                      id="key-MSO Traducción"
+                      class="spkr_key"
+                      style="color: #9eb4e7; margin-right: 8px"
+                      >MSO</span
+                    ><span style="margin-right: 8px">&middot;</span
+                    ><span class="spkr_name" style="margin-right: 8px"
+                      >MSO Traducción</span
+                    ><select
+                      id="MSO Traducción-display"
+                      style="margin-left: 10px"
+                      onchange="changeTierPlacement('MSO Traducción');"
+                    >
+                      <option value="top" selected>One-line display</option>
+                      <option value="bottom">Scrolling</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- PLAYER -->
+              <div
+                id="player_area"
+                style="width: 100%; margin-left: auto; margin-right: auto"
+              >
+                <audio
+                  onclick="sync(this.currentTime)"
+                  onmousemove="sync(this.currentTime)"
+                  ontimeupdate="sync(this.currentTime)"
+                  id="sync_player"
+                  controls="true"
+                >
+                  <source
+                    src="https://cdn.glitch.com/120f087f-0e29-4163-9f0b-687d6b040d37%2Fasset01.mp3?v=1608405042333"
+                    type="audio/mpeg"
+                    onerror="alertMLoadErr();"
+                  />
+                </audio>
+              </div>
+              <div id="gloss-box">
+                <div id="txt_refs" class="divTable glossTable"></div>
+              </div>
+              <div id="txt_lns" class="scrollTable"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <!-- EAF VIWER -->
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/shared.js"></script>
+    <script src="js/jscolor.js"></script>
     <script type="text/javascript">
       var media;
       var ts_start_time_array = [];
@@ -1653,306 +1961,5 @@
         }
       }
     </script>
-    <title>Document</title>
-  </head>
-  <body>
-    <table id="maintable" cellspacing="0">
-      <tr style="width: 100%">
-        <td class="middlecenter" colspan="3">
-          <div class="navpath">
-            <a href="../../index.php">Home</a> &gt;&gt;
-            <a href="index.php?collid=0">View EAF Files</a> &gt;&gt;
-            <b
-              >Mowih (<i>Justicia spicigera</i> Schltdl., Acanthaceae)
-              [<i>azz</i>] EAF Detail</b
-            >
-          </div>
-          <!-- This is inner text! -->
-          <div
-            id="innertext"
-            style="padding-left: 0px; padding-right: 0px; padding-top: 0px"
-          >
-            <div id="txt_sync_content">
-              <div id="player-title-box">
-                <h1>
-                  Mowih (<i>Justicia spicigera</i> Schltdl., Acanthaceae)
-                  [<i>azz</i>]
-                </h1>
-              </div>
-              <div id="spkr_keys_box">
-                <div
-                  style="float: left; cursor: pointer"
-                  onclick="toggleDisplayPanel();"
-                  title="Toggle Display Panel"
-                >
-                  <div
-                    id="plusButton"
-                    style="display: flex; align-items: center"
-                  >
-                    <img
-                      style="border: 0px; margin-right: 8px"
-                      src="img/plus.png"
-                    />
-                    (Open to customize display)
-                  </div>
-                  <img
-                    id="minusButton"
-                    style="border: 0px; display: none"
-                    src="img/minus.png"
-                  />
-                </div>
-
-                <div id="spkr_keys" style="display: none; margin-left: 50px">
-                  
-                  <!-- PADRE TIER - PARTICIPANT 01 -->
-                  <div style="clear: both; display: flex; align-items: center">
-                    <input
-                      type="checkbox"
-                      class="check-pres"
-                      style="margin-right: 8px"
-                      id="check-tier-Rubén Macario Martínez"
-                      value="Rubén Macario Martínez"
-                      onchange='changePresCheck("Rubén Macario Martínez");toggleSpeaker("Rubén Macario Martínez");'
-                    />
-                    <span class="spkr_name">Rubén Macario Martínez</span>
-                  </div>
-                  <!-- Hijo Tier 01-->
-                  <div
-                    style="
-                      clear: both;
-                      margin-left: 20px;
-                      display: flex;
-                      align-items: center;">
-                    <input
-                      type="checkbox"
-                      style="margin-right: 8px"
-                      class="check-tier"
-                      name="check-tier-Rubén Macario Martínez"
-                      id="checkbox-Rubén Macario Martínez"
-                      onchange='changeTierCheck("Rubén Macario Martínez");toggleTier("Rubén Macario Martínez");'
-                      value="Rubén Macario Martínez"
-                      checked
-                    />
-                    <input
-                      id="color-Rubén Macario Martínez"
-                      class="color"
-                      style="
-                        cursor: pointer;
-                        border: 1px black solid;
-                        height: 14px;
-                        width: 14px;
-                        font-size: 0px;
-                        margin-right: 8px;
-                      "
-                      value="9bf786"
-                      onchange='changeTierColor(this.value,"Rubén Macario Martínez","Rubén Macario Martínez");'
-                    />
-                    <span
-                      id="key-Rubén Macario Martínez"
-                      class="spkr_key"
-                      style="color: #9bf786; margin-right: 8px"
-                      >RMM</span>
-                    <span style="margin-right: 8px">&middot;</span>
-                    <span class="spkr_name" style="margin-right: 8px"
-                      >Rubén Macario Martínez (transcription)</span
-                    >
-                    <select
-                      id="Rubén Macario Martínez-display"
-                      style="margin-left: 10px"
-                      onchange="changeTierPlacement('Rubén Macario Martínez');"
-                    >
-                      <option value="top">One-line display</option>
-                      <option value="bottom" selected>Scrolling</option>
-                    </select>
-                  </div>
-
-                  <!-- Hijo Tier 02-->
-                  <div
-                    style="
-                      clear: both;
-                      margin-left: 20px;
-                      display: flex;
-                      align-items: center;
-                    ">
-                    <input
-                      type="checkbox"
-                      style="margin-right: 8px"
-                      class="check-tier"
-                      name="check-tier-Rubén Macario Martínez"
-                      id="checkbox-RMM Traducción"
-                      onchange='changeTierCheck("Rubén Macario Martínez");toggleTier("RMM Traducción");'
-                      value="RMM Traducción"
-                      checked/>
-                    <input
-                      id="color-RMM Traducción"
-                      class="color"
-                      style="
-                        cursor: pointer;
-                        border: 1px black solid;
-                        height: 14px;
-                        width: 14px;
-                        font-size: 0px;
-                        margin-right: 8px;
-                      "
-                      value="fbf4dd"
-                      onchange='changeTierColor(this.value,"Rubén Macario Martínez","RMM Traducción");'/>
-                    <span
-                      id="key-RMM Traducción"
-                      class="spkr_key"
-                      style="color: #fbf4dd; margin-right: 8px"
-                      >RMM</span>
-                      <span style="margin-right: 8px">&middot;</span>
-                      <span class="spkr_name" style="margin-right: 8px">
-                        RMM Traducción</span>
-                    <select
-                      id="RMM Traducción-display"
-                      style="margin-left: 10px"
-                      onchange="changeTierPlacement('RMM Traducción');">
-                      <option value="top" selected>One-line display</option>
-                      <option value="bottom">Scrolling</option>
-                    </select>
-                  </div>
-                  <!-- PADRE TIER - PARTICIPANT 02-->
-                  <div style="clear: both; display: flex; align-items: center">
-                    A
-                    <input
-                      type="checkbox"
-                      class="check-pres"
-                      style="margin-right: 8px"
-                      id="check-tier-María Salazar Osollo"
-                      value="María Salazar Osollo"
-                      onchange='changePresCheck("María Salazar Osollo");toggleSpeaker("María Salazar Osollo");'
-                    />
-                    <span class="spkr_name">María Salazar Osollo</span>
-                  </div>
-                  <div
-                    style="
-                      clear: both;
-                      margin-left: 20px;
-                      display: flex;
-                      align-items: center;
-                    "
-                  >
-                    <input
-                      type="checkbox"
-                      style="margin-right: 8px"
-                      class="check-tier"
-                      name="check-tier-María Salazar Osollo"
-                      id="checkbox-María Salazar Osollo"
-                      onchange='changeTierCheck("María Salazar Osollo");toggleTier("María Salazar Osollo");'
-                      value="María Salazar Osollo"
-                      checked
-                    />
-                    <input
-                      id="color-María Salazar Osollo"
-                      class="color"
-                      style="
-                        cursor: pointer;
-                        border: 1px black solid;
-                        height: 14px;
-                        width: 14px;
-                        font-size: 0px;
-                        margin-right: 8px;
-                      "
-                      value="89b681"
-                      onchange='changeTierColor(this.value,"María Salazar Osollo","María Salazar Osollo");'
-                    />
-                    <span
-                      id="key-María Salazar Osollo"
-                      class="spkr_key"
-                      style="color: #89b681; margin-right: 8px"
-                      >MSO</span
-                    ><span style="margin-right: 8px">&middot;</span
-                    ><span class="spkr_name" style="margin-right: 8px"
-                      >María Salazar Osollo (transcription)</span
-                    ><select
-                      id="María Salazar Osollo-display"
-                      style="margin-left: 10px"
-                      onchange="changeTierPlacement('María Salazar Osollo');"
-                    >
-                      <option value="top">One-line display</option>
-                      <option value="bottom" selected>Scrolling</option>
-                    </select>
-                  </div>
-                  <div
-                    style="
-                      clear: both;
-                      margin-left: 20px;
-                      display: flex;
-                      align-items: center;
-                    "
-                  >
-                    <input
-                      type="checkbox"
-                      style="margin-right: 8px"
-                      class="check-tier"
-                      name="check-tier-María Salazar Osollo"
-                      id="checkbox-MSO Traducción"
-                      onchange='changeTierCheck("María Salazar Osollo");toggleTier("MSO Traducción");'
-                      value="MSO Traducción"
-                      checked
-                    />
-                    <input
-                      id="color-MSO Traducción"
-                      class="color"
-                      style="
-                        cursor: pointer;
-                        border: 1px black solid;
-                        height: 14px;
-                        width: 14px;
-                        font-size: 0px;
-                        margin-right: 8px;
-                      "
-                      value="9eb4e7"
-                      onchange='changeTierColor(this.value,"María Salazar Osollo","MSO Traducción");'
-                    />
-                    <span
-                      id="key-MSO Traducción"
-                      class="spkr_key"
-                      style="color: #9eb4e7; margin-right: 8px"
-                      >MSO</span
-                    ><span style="margin-right: 8px">&middot;</span
-                    ><span class="spkr_name" style="margin-right: 8px"
-                      >MSO Traducción</span
-                    ><select
-                      id="MSO Traducción-display"
-                      style="margin-left: 10px"
-                      onchange="changeTierPlacement('MSO Traducción');"
-                    >
-                      <option value="top" selected>One-line display</option>
-                      <option value="bottom">Scrolling</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- PLAYER -->
-              <div
-                id="player_area"
-                style="width: 100%; margin-left: auto; margin-right: auto"
-              >
-                <audio
-                  onclick="sync(this.currentTime)"
-                  onmousemove="sync(this.currentTime)"
-                  ontimeupdate="sync(this.currentTime)"
-                  id="sync_player"
-                  controls="true"
-                >
-                  <source
-                    src="https://cdn.glitch.com/120f087f-0e29-4163-9f0b-687d6b040d37%2Fasset01.mp3?v=1608405042333"
-                    type="audio/mpeg"
-                    onerror="alertMLoadErr();"
-                  />
-                </audio>
-              </div>
-              <div id="gloss-box">
-                <div id="txt_refs" class="divTable glossTable"></div>
-              </div>
-              <div id="txt_lns" class="scrollTable"></div>
-            </div>
-          </div>
-        </td>
-      </tr>
-    </table>
   </body>
 </html>

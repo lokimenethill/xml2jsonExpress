@@ -3,14 +3,29 @@ const app = express();
 const path = require('path');
 const eafTools = require('../helpers/eafTools');
 var parser = require('xml2json');
+const ExpHbs = require('express-handlebars');
 var fs = require('fs');
 const appRoot = require('app-root-path').path;
 
 // Reading the file
 let eafXml = fs.readFileSync('./originals/a01.eaf', 'utf8');
 var eafJs = JSON.parse(parser.toJson(eafXml));
-// Adding static files
-app.use(express.static(path.join(appRoot,'public')));
+
+
+// App Templae EGINE
+app.engine('hbs', ExpHbs({
+  extname: '.hbs',
+  defaultLayout: 'main'
+}));
+
+// Selecting Template Engine
+app.set('view engine', 'hbs');
+// Setting Views Route
+app.set('views', path.join(__dirname, 'views'));
+
+app.get('/', (req, res)=>{
+  res.render('home',{title: "Demca Viwer"});
+});
 
 app.get('/res/timeslotArr', (req, res) => {
   let timeslotArr = eafTools.getTimeSlotArray(eafJs);
@@ -58,6 +73,9 @@ app.get('/org/lineTimeArr', (req, res) => {
   let lineTimeArr = require('../originals/lintetimeArr.json')
   res.json(lineTimeArr);
 });
+
+// Adding static files
+app.use(express.static(path.join(appRoot,'public')));
 
 // Starting Server
 const port = 3000

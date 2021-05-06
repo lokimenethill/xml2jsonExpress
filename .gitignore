@@ -1,2 +1,5 @@
 #Ignorando modulos
 node_modules
+# folders fuente
+originals
+output

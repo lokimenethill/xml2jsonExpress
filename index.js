@@ -5,7 +5,15 @@ var parser = require('xml2json');
 var fs = require('fs');
 const { Console } = require('console');
 var xml = fs.readFileSync('a.eaf', 'utf8');
-
+var options = {
+  object: true,
+  reversible: false,
+  coerce: false,
+  sanitize: true,
+  trim: true,
+  arrayNotation: false,
+  alternateTextNode: false
+};
 //var xml = "<foo attr=\"value\">bar</foo>";
 //console.log("input -> %s", xml)
 
@@ -16,25 +24,29 @@ var xml = fs.readFileSync('a.eaf', 'utf8');
 var xml = parser.toXml(json);
 console.log("back to xml -> %s", xml)*/
 app.get('/working/dataArr', (req, res) => {
-  var jsonxml = JSON.parse(parser.toJson(xml));
+  var jsonxml = parser.toJson(xml,options);
+  
+  function pull_time_orders(jsonxmlparser){
+    var temp_json = jsonxmlparser['ANNOTATION_DOCUMENT']['TIME_ORDER']['TIME_SLOT']
+  }
   //console.log(jsonxml['ANNOTATION_DOCUMENT']['TIER'][0]['PARTICIPANT']);
   var tiersjson = jsonxml['ANNOTATION_DOCUMENT']['TIER'];
   var json_objetivo = {};
   for (let i = 0; i < tiersjson.length; i++) {
     var participants = jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['PARTICIPANT'];
     var lines = jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['ANNOTATION'];
-    
     var lines_json = {};
+    var line_ref={}
+    var sort_lines = {}
     for (let x = 0; x < lines.length; x++) {
-      var line_ref =
-        jsonxml['ANNOTATION_DOCUMENT']['TIER'][i]['ANNOTATION'][x][
-          'REF_ANNOTATION'
-        ];
-      lines_json[line_ref] = lines;
+      line_ref["lines"] =lines
+        
+        json_objetivo[participants]= line_ref;
+      lines_json[participants] = lines;
       console.log(JSON.stringify(line_ref));
     }
 
-    json_objetivo[participants] = lines_json;
+    //json_objetivo[participants] = lines_json;
 
     json_objetivo;
   }
@@ -44,7 +56,7 @@ app.get('/working/dataArr', (req, res) => {
 });
 
 app.get('/working/lineTimeArr', (req, res) => {
-  var jsonxml = JSON.parse(parser.toJson(xml));
+  var jsonxml = parser.toJson(xml,options);
   //console.log(jsonxml['ANNOTATION_DOCUMENT']['TIER'][0]['PARTICIPANT']);
   var tiersjson = jsonxml['ANNOTATION_DOCUMENT']['TIER'];
   var json_objetivo = [];
@@ -62,7 +74,7 @@ app.get('/working/lineTimeArr', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  var jsonxml = JSON.parse(parser.toJson(xml));
+  var jsonxml = parser.toJson(xml,options);
   //console.log("to json -> %s", json);
   res.json(jsonxml);
 });

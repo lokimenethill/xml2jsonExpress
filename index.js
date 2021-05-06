@@ -24,6 +24,11 @@ app.get('/res/lineTimeArr', (req, res) => {
   res.json(lineTimeArr);
 });
 
+app.get('/res/tierArr', (req, res) => {
+  let tierArr = eafTools.getTierArr(eafJs)
+  res.json(tierArr);
+});
+
 app.get('/', (req, res) => {
   
   eafJs = JSON.parse(parser.toJson(eafXml));

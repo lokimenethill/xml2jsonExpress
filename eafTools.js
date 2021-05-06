@@ -128,13 +128,16 @@ function getLineTimeArray(eaf){
 }
 
 function getTierArr(eaf){
+
   const tiers = eaf["ANNOTATION_DOCUMENT"]["TIER"];
   let tierArr = {};
+  
+  // ****
   tiers.forEach(tier => {
     // Checking if tier
     if(!tier["ANNOTATION"]) return;
     // Get Participant if not exiist add objects
-    let participant = tier["$"]["PARTICIPANT"];
+    let participant = tier["PARTICIPANT"];
     if(!tierArr[participant]){
       tierArr[participant] = {
         participant,
@@ -142,7 +145,7 @@ function getTierArr(eaf){
       };
     }
     // Get tierID
-    let tierID = tier["$"]["TIER_ID"];
+    let tierID = tier["TIER_ID"];
 
     // Get Code
     let code = "";
@@ -160,7 +163,6 @@ function getTierArr(eaf){
   });
   return tierArr;
 }
-
 
 module.exports = {
   getTimeSlotArray,

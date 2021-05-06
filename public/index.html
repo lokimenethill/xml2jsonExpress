@@ -7,8 +7,6 @@
     <link rel="icon" type="image/png" href="img/plus.png" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/main.css" />
-    
-
     <style type="text/css">
       div[id^="txt-current_"] {
         background-color: #eeeeee;
@@ -134,7 +132,14 @@
         display: table-cell;
       }
     </style>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/shared.js"></script>
+    <script src="js/jscolor.js"></script>
     
     <title>Document</title>
   </head>
@@ -536,14 +541,7 @@
     <!-- EAF VIWER -->
 
     <!-- SCRIPTS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/shared.js"></script>
-    <script src="js/jscolor.js"></script>
+    
     <script type="text/javascript">
       var media;
       var ts_start_time_array = [];
@@ -559,675 +557,620 @@
       var tierShowArr = Array();
       /* DATA */
       var dataArr = {
-        "Rey Castillo García": {
-          display: "bottom",
-          color: "",
-          lines: {
-            a18: {
-              lineref: "a18",
-              start: 0,
-              stop: 0,
-              value:
-                "Nda³tu'⁴un⁴ lu³chi'⁴i²=un⁴ ji'⁴in⁴=ndu² xa'¹a⁴ i³ta² sa³in⁴ ta³ta² chi¹.",
-            },
-            a19: {
-              lineref: "a19",
-              start: 7.1,
-              stop: 7.1,
-              value:
-                "Sa¹a³ nu¹⁴u³ ba⁴² i⁴yo² tan³ sa¹a³, nda⁴a² ba⁴² chi'⁴i⁴=na⁽²⁾=e² nda⁴a² tiem⁴pu² chi'⁴i⁴=na⁽²⁾=e²",
-            },
-            a20: {
-              lineref: "a20",
-              start: 11.972,
-              stop: 11.972,
-              value:
-                "na⁴chu³ jo⁴ndo¹³=a² ji'⁴in⁴=na², sa¹a³ i⁴in⁽⁴⁾=a² chi¹ tan³ na⁴chu³ jo⁴ndo¹³=a² chi¹.",
-            },
-            a27: {
-              lineref: "a27",
-              start: 57.621,
-              stop: 57.621,
-              value: "¿An⁴ ki⁴ku¹³=na⁽³⁾=e³?",
-            },
-            a29: {
-              lineref: "a29",
-              start: 64.875,
-              stop: 64.875,
-              value: "¿An⁴ xa'⁴an² bi¹xi⁽¹⁾=a¹?",
-            },
-            a33: {
-              lineref: "a33",
-              start: 79.697,
-              stop: 79.697,
-              value:
-                "An⁴ sa³kan⁴ ba³. Tan⁴² i⁴yo², ya¹ ba⁴li⁴ ba⁴² kan⁴. Tan³ ki⁴ku¹³=na⁽²⁾=e² tan³, ya¹kan³, tan³ ¿sa¹a³ i⁴xa³=na² nda⁴-ka³ya²=na¹ ta³ta² tin³?",
-            },
-            a36: {
-              lineref: "a36",
-              start: 96.045,
-              stop: 96.045,
-              value:
-                "Tan³ ¿an⁴ a¹su³ in³ka⁴chi¹ chi'⁴i⁴=na⁽²⁾=e² ji'⁴in⁴, ya¹kan³ ...? I³in³ tiem⁴pu². An⁴ sa³kan⁴ ba³.",
-            },
-            a39: {
-              lineref: "a39",
-              start: 111.448,
-              stop: 111.448,
-              value: "Ba¹⁴³ xi⁴yo¹³=a² yu³mi⁴.",
-            },
-            a42: {
-              lineref: "a42",
-              start: 117.752,
-              stop: 117.752,
-              value:
-                "An⁴ sa³kan⁴ ba³ te¹. Tan³ ya¹kan³, sa³kan⁴ ku⁴u⁴ ndi'³i³ ba⁽³⁾=e² ran⁴. Ba'¹a³.",
-            },
-            a43: {
-              lineref: "a43",
-              start: 124.14,
-              stop: 124.14,
-              value: "¿Sa¹a³ na³ni⁽⁴⁾=un⁴?",
-            },
-            a45: {
-              lineref: "a45",
-              start: 127.012,
-              stop: 127.012,
-              value: "¿Sa¹a³ kwi¹ya⁽¹⁾=on⁴?",
-            },
-            a47: {
-              lineref: "a47",
-              start: 130.175,
-              stop: 131.876,
-              value: "¿Sa¹a³ na³ni⁴ ñu³u²=un⁴?",
-            },
-            a49: {
-              lineref: "a49",
-              start: 132.305,
-              stop: 132.313,
-              value: "Ba'¹a³ ba³.",
-            },
-          },
-        },
-        "Rey Castillo García Surface-2": {
-          display: "bottom",
-          color: "",
-          lines: {
-            a18_SURFACE2: {
-              lineref: "a18_SURFACE2",
-              start: 0,
-              stop: 7.1,
-              value:
-                "Nda³tũ'⁴ũ⁴ lu³chỹũ'⁴ũ²⁴ jĩ'⁴ĩ⁴ndu² xa'¹a⁴ i³ta² sã³ĩ⁴ ta³ta² chi¹.",
-            },
-            a19_SURFACE2: {
-              lineref: "a19_SURFACE2",
-              start: 7.1,
-              stop: 11.972,
-              value:
-                "Sa¹a³ nũ¹⁴ũ³ ba⁴² i⁴yo² tã³ sa¹a³, nda⁴a² ba⁴² chi'⁴i⁴nẽ² nda⁴a² tyem⁴pu² chi'⁴i⁴nẽ².",
-            },
-            a20_SURFACE2: {
-              lineref: "a20_SURFACE2",
-              start: 11.972,
-              stop: 16.909,
-              value:
-                "nã⁴chu³ jo⁴ndwa¹³² jĩ'⁴ĩ⁴nã², sa¹a³ ỹã⁴ã² chi¹ tã³ nã⁴chu³ jo⁴ndwa¹³² chi¹.",
-            },
-            a27_SURFACE2: {
-              lineref: "a27_SURFACE2",
-              start: 57.621,
-              stop: 58.351,
-              value: "¿An⁴ ki⁴ku¹³nẽ³?",
-            },
-            a29_SURFACE2: {
-              lineref: "a29_SURFACE2",
-              start: 64.875,
-              stop: 65.885,
-              value: "¿An⁴ xã'⁴ã² bi¹xya¹?",
-            },
-            a33_SURFACE2: {
-              lineref: "a33_SURFACE2",
-              start: 79.697,
-              stop: 86.903,
-              value:
-                "An⁴ sa³kã⁴ ba³. Tã⁴² i⁴yo² ya¹ ba⁴li⁴ ba⁴² kã⁴. Tã³ ki⁴ku¹³nẽ² tã³, ya¹kã³, tã³ ¿sa¹a³ i⁴xa³nã² nda⁴ka³ya²nã¹ ta³ta² tĩ³?",
-            },
-            a36_SURFACE2: {
-              lineref: "a36_SURFACE2",
-              start: 96.045,
-              stop: 104.113,
-              value:
-                "Tã³ ¿ã⁴ a¹su³ ĩ³ka⁴chi¹ chi'⁴i⁴nẽ² jĩ'⁴ĩ⁴, ya¹kã³ ...?  I³ĩ³ tyem⁴pu². An⁴ sa³kã⁴ ba³.",
-            },
-            a39_SURFACE2: {
-              lineref: "a39_SURFACE2",
-              start: 111.448,
-              stop: 113.478,
-              value: "Ba¹⁴³ xi⁴ywa¹³² yu³mĩ⁴.",
-            },
-            a42_SURFACE2: {
-              lineref: "a42_SURFACE2",
-              start: 117.752,
-              stop: 124.14,
-              value:
-                "An⁴ sa³kã⁴ ba³ te¹. Tã³ ya¹kã³, sa³kã⁴ ku⁴u⁴ ndi'³i³ be² rã⁴. Ba'¹a³.",
-            },
-            a43_SURFACE2: {
-              lineref: "a43_SURFACE2",
-              start: 124.14,
-              stop: 127.012,
-              value: "¿Sa¹a³ nã³nỹũ⁴?",
-            },
-            a45_SURFACE2: {
-              lineref: "a45_SURFACE2",
-              start: 127.012,
-              stop: 130.175,
-              value: "¿Sa¹a³ kwi¹ỹõ⁴?",
-            },
-            a47_SURFACE2: {
-              lineref: "a47_SURFACE2",
-              start: 130.175,
-              stop: 132.305,
-              value: "¿Sa¹a³ nã³nĩ⁴ ñũ³ũ²⁴?",
-            },
-            a49_SURFACE2: {
-              lineref: "a49_SURFACE2",
-              start: 132.313,
-              stop: 134.468,
-              value: "Ba'¹a³ ba³.",
-            },
-          },
-        },
-        "Raúl Felipe Margarito": {
-          display: "bottom",
-          color: "",
-          lines: {
-            a21: {
-              lineref: "a21",
-              start: 16.909,
-              stop: 16.909,
-              value:
-                "I³ta² sa³in⁴ ta³ta² kan⁴ ba⁴² ya¹, ya¹ ka⁴chi²=o⁴ ndo⁴ko³to⁽³⁾=e⁴ ji'⁴in⁴ i³ta² kwa¹on⁴ ka⁴chi²=o⁴ ya¹ bi³ko⁴ i³ta²,",
-            },
-            a22: {
-              lineref: "a22",
-              start: 24.331,
-              stop: 24.331,
-              value:
-                "ya¹ chi'⁴i⁴=na⁽²⁾=e² kan⁴ ndi⁴ a¹su³ tiem⁴pu² ka³ta²=e⁴ tun⁴ i³ta² kwa¹on⁴ i³kan⁴ ba⁴² chi³..., ka³ta² tu⁽³⁾=e⁴ ya¹ kan⁴ ndi³kin⁴=a² kan⁴ tan³",
-            },
-            a23: {
-              lineref: "a23",
-              start: 31.243,
-              stop: 31.243,
-              value:
-                "Xi¹⁴in³=ni⁴² bi⁴=a² ko³o⁽³⁾=a² ñu³u²=e⁴ ka¹a³ ndi⁴ ba³ ba¹⁴³ ndu⁴ta'³an⁽²⁾=e² ko³o⁽³⁾=a² ka¹a³ ndi⁴ ñu³u² ja¹, an⁴ ñu³u² sa'⁴an⁴ ba⁴² an⁴ ñu³u² bi¹xin³ ka¹ i³kan⁴ ba⁴² la³tun⁴ xi⁴yo¹³=a² tan³ ñu³u²=e⁴ ka¹a³ ndi⁴ kwa⁴chi³=ni⁴² xa'⁴nu³=run⁴ tu⁴u²=yu¹.",
-            },
-            a24: {
-              lineref: "a24",
-              start: 40.327,
-              stop: 40.327,
-              value:
-                "So'³o³ so'³o³ ti⁴ ba³ xa'⁴nu³=run⁴ tan³ i⁴yo² i³ta²=run⁴, ba⁴li⁴=ni⁴² nu¹⁴u⁽³⁾=a² so'³o³ so'³o³ ti⁴ ba⁴li⁴ nu¹⁴u⁽³⁾=a² tan³",
-            },
-            a25: {
-              lineref: "a25",
-              start: 46.041,
-              stop: 46.041,
-              value:
-                "ya¹ kan⁴ ba⁴² kwa'¹an¹ ji'⁴in⁽⁴⁾=o⁴ pa³san⁴tu² ndo³ko³to⁽³⁾=e⁴ ji'⁴in⁴ i³ta² kwa¹on⁴ na⁴tu² i⁴yo⁽²⁾=a² xa³ku⁴=ni⁴² ba⁴² xi⁴yo¹³=a² ñu³u² ka¹a³. Ko¹⁴o³ ba'¹a³ ba'¹a³=e² kan⁴ ñu³u² ka¹a³ ndi⁴,",
-            },
-            a26: {
-              lineref: "a26",
-              start: 53.917,
-              stop: 53.917,
-              value:
-                "an⁴ ba¹⁴³ chi'⁴i⁴=na⁽²⁾=e² an⁴ ko¹⁴o³ ni³ mi³i⁴=² tan³ ba¹⁴³ chi'⁴i⁽⁴⁾=a² a¹chi¹ ndi⁴ ta³ta⁽²⁾=e² ku⁴ni⁽²⁾=a².",
-            },
-            a28: {
-              lineref: "a28",
-              start: 58.351,
-              stop: 58.351,
-              value:
-                "Ki⁴ku¹³=na⁽²⁾=e² ji'⁴in⁴ yo'³o⁴ ki⁴ku¹³=na⁽³⁾=e³. Ni⁴i²⁴ chi'⁴i² so'³o³ so'³o³ ti⁴ yo'³o⁴=a² ya¹ sa³kan⁴ ku⁴u⁽⁴⁾=a² ya¹ i³ta² ba⁴li⁴=ni⁴² ba⁴³.",
-            },
-            a30: {
-              lineref: "a30",
-              start: 65.885,
-              stop: 65.885,
-              value:
-                "Xa'⁴an² bi¹xi¹ ta'³an⁽²⁾=e², xa'⁴an² bi¹xi⁽¹⁾=a¹ ba'¹a³ xi³ko² ba⁽³⁾=e² ku'¹un¹ ji'⁴in⁽⁴⁾=o⁴ ndo³ko³to⁽³⁾=e⁴.",
-            },
-            a31: {
-              lineref: "a31",
-              start: 70.611,
-              stop: 70.611,
-              value:
-                "I³ta² ndi¹⁴i² ba⁴² kan⁴, i⁴yo⁽²⁾=a² ndi¹⁴i² i⁴yo⁽²⁾=a² kwa'⁴a¹, u¹bi¹ nu¹⁴u³ tu³ ba⁴² kan⁴ ba³.",
-            },
-            a32: {
-              lineref: "a32",
-              start: 75.889,
-              stop: 75.889,
-              value:
-                "Tan⁴² ku⁴ni² ko³o³ yu¹ku¹ tun⁴ i³ta² <i>pastora</i> sa³kan⁴ ku⁴ni² ko³o³ tu³ yu¹ku¹ tun⁴ kan⁴ ba³.",
-            },
-            a34: {
-              lineref: "a34",
-              start: 79.697,
-              stop: 86.903,
-              value: "A¹be³, sa³kan⁴ i⁴in⁽⁴⁾=a² ya¹ kwi⁴i²⁴ ba⁴li⁴ ba⁴² kan⁴.",
-            },
-            a35: {
-              lineref: "a35",
-              start: 86.903,
-              stop: 86.903,
-              value:
-                "Ndi³kin⁴=a² kan⁴ nda⁴-ka³ya²=na¹ tu⁴u²=yu¹ a¹chi¹ ndi⁴ ta'¹⁴an² chi'³i⁽³⁾=a². A¹chi¹ ndi⁴ ya¹ i⁴yo² ndi³kin⁴ ba⁴² mi⁴i⁴ i⁴yo², mi⁴i⁴ i⁴yo² i³ta⁽²⁾=e² kan⁴ i³kan⁴ ndo⁴o¹³=a² i⁴chi⁽¹⁾=a¹ tan³ i³kan⁴ nda³-ka³ya²=na⁽¹⁾=e¹ ko⁴..., ko⁴ndo⁽³⁾=a² ta³ta²=na¹.",
-            },
-            a37: {
-              lineref: "a37",
-              start: 96.045,
-              stop: 104.113,
-              value:
-                "In³ka⁴chi¹ chi'⁴i⁴=na⁽²⁾=e² ji'⁴in⁴ tun⁴ i³ta² kwa¹on⁴ ba³ tu⁴u²=yu¹, i³in³ tiem⁴pu².",
-            },
-            a38: {
-              lineref: "a38",
-              start: 104.113,
-              stop: 104.113,
-              value:
-                "I³in³ tiem⁴pu² ya¹ kan⁴ ndi⁴ ndu⁴ta⁽¹⁾=e¹ tan³ ja⁴chiu⁴un⁽⁴⁾=a² ji'⁴in⁴=na² ya¹, ya¹ bi³ko⁴ i³ta² ka⁴chi²=o⁴ kan⁴ a¹chi¹, sa³kan⁴ ba⁴² ji⁴ni² yu'¹u¹ ba⁽³⁾=e² ran⁴, ko¹⁴o⁽³⁾=a² ji⁴ni²=yu¹ tiem⁴pu² bi³tin³ ndi⁴,",
-            },
-            a40: {
-              lineref: "a40",
-              start: 111.448,
-              stop: 113.478,
-              value: "Ba¹⁴³ xi⁴yo¹³=a² yu³mi⁴.",
-            },
-            a41: {
-              lineref: "a41",
-              start: 113.478,
-              stop: 113.478,
-              value:
-                "Ji¹⁴ni²=o⁴ sa¹a³ a³sa⁽³⁾=e² na⁴ i⁴yo² ndi³kin⁴=a² tan³ chi'³i⁽³⁾=o⁴=e² ndi⁴ xa³ku⁴=ni⁴² xi⁴yo¹³=a² ñu³u²=e⁴ ka¹a³.",
-            },
-            a44: {
-              lineref: "a44",
-              start: 124.14,
-              stop: 127.012,
-              value: "Raúl na³ni⁴=².",
-            },
-            a46: {
-              lineref: "a46",
-              start: 127.012,
-              stop: 130.175,
-              value: "U¹bi¹ xi³ko³ i¹ñu¹ kwi¹ya¹ ku⁴u⁽⁴⁾=².",
-            },
-            a48: {
-              lineref: "a48",
-              start: 130.175,
-              stop: 132.313,
-              value: "Yoloxóchitl ku⁴u⁴ ñu³u²=yu¹.",
-            },
-          },
-        },
-        "Raúl Felipe Margarito Surface-2": {
-          display: "bottom",
-          color: "",
-          lines: {
-            a21_SURFACE2: {
-              lineref: "a21_SURFACE2",
-              start: 16.909,
-              stop: 24.331,
-              value:
-                "I³ta² sã³ĩ⁴ ta³ta² kã⁴ ba⁴² ya¹, ya¹ ka⁴chyo²⁴ ndo⁴ko³twe⁴ jĩ'⁴ĩ⁴ i³ta² kwã¹õ⁴ ka⁴chyo²⁴ ya¹ bi³ko⁴ i³ta²,",
-            },
-            a22_SURFACE2: {
-              lineref: "a22_SURFACE2",
-              start: 24.331,
-              stop: 31.243,
-              value:
-                "ya¹ chi'⁴i⁴nẽ² kã⁴ ndi⁴ a¹su³ tyem⁴pu² ka³te²⁴ tũ⁴ i³ta² kwã¹õ⁴ i³kã⁴ ba⁴² chi³..., ka³ta² twe⁴ ya¹ kã⁴ ndi³kỹã⁴² kã⁴ tã³",
-            },
-            a23_SURFACE2: {
-              lineref: "a23_SURFACE2",
-              start: 31.243,
-              stop: 40.327,
-              value:
-                "Xĩ¹⁴ĩn³=ni⁴² bya⁴² kwa³a² nywe³e²⁴ ka¹a³ ndi⁴ ba³ ba¹⁴³ ndu⁴tẽ'³ẽ² kwa³a² ka¹a³ ndi⁴ ñũ³ũ² ja¹, ã⁴ ñũ³ũ² sã'⁴ã⁴ ba⁴² ã⁴ ñũ³ũ² bi¹xĩ³ ka¹ i³kã⁴ ba⁴² la³tũ⁴ xi⁴ywa¹³² tã³ nywe³e²⁴ ka¹a³ ndi⁴ kwa⁴chi³nĩ⁴² xa'⁴nũ³rũ⁴ tu⁴u²yu¹.",
-            },
-            a24_SURFACE2: {
-              lineref: "a24_SURFACE2",
-              start: 40.327,
-              stop: 46.041,
-              value:
-                "So'³o³ so'³o³ ti⁴ ba³ xa'⁴nũ³rũ⁴ tã³ i⁴yo² i³ta²rũ⁴, ba⁴li⁴nĩ⁴² nw̃ã¹⁴ã² so'³o³ so'³o³ ti⁴ ba⁴li⁴ nw̃ã¹⁴ã² tã³",
-            },
-            a25_SURFACE2: {
-              lineref: "a25_SURFACE2",
-              start: 46.041,
-              stop: 53.917,
-              value:
-                "ya¹ kã⁴ ba⁴² kwã'¹ã¹ jyo'⁴o⁴ pa³sã⁴tu² ndo³ko³twe⁴ jĩ'⁴ĩ⁴ i³ta² kwã¹õ⁴ nã⁴tu² i⁴ywa² xa³ku⁴nĩ⁴² ba⁴² xi⁴ywa¹³² ñũ³ũ² ka¹a³. Ko¹⁴o³ ba'¹a³ be'¹e³² kã⁴ ñũ³ũ² ka¹a³ ndi⁴,",
-            },
-            a26_SURFACE2: {
-              lineref: "a26_SURFACE2",
-              start: 53.917,
-              stop: 57.621,
-              value:
-                "ã⁴ ba¹⁴³ chi'⁴i⁴nẽ² ã⁴ ko¹⁴o³ nĩ³ mĩ³ĩ⁴² tã³ ba¹⁴³ chya'⁴a² a¹chi¹ ndi⁴ ta³te² ku⁴nỹã².",
-            },
-            a28_SURFACE2: {
-              lineref: "a28_SURFACE2",
-              start: 58.351,
-              stop: 64.875,
-              value:
-                "Ki⁴ku¹³nẽ² jĩ'⁴ĩ⁴ yo'³o⁴ ki⁴ku¹³nẽ³. Ni⁴i²⁴ chi'⁴i² so'³o³ so'³o³ ti⁴ ywa'³a⁴² ya¹ sa³kã⁴ kwa⁴a² ya¹ i³ta² ba⁴li⁴nĩ⁴² ba⁴³.",
-            },
-            a30_SURFACE2: {
-              lineref: "a30_SURFACE2",
-              start: 65.885,
-              stop: 70.611,
-              value:
-                "Xã'⁴ã² bi¹xi¹ tẽ'³ẽ², xã'⁴ã² bi¹xya¹ ba'¹a³ xi³ko² be² kũ'¹ũ¹ jyo'⁴o⁴ ndo³ko³twe⁴.",
-            },
-            a31_SURFACE2: {
-              lineref: "a31_SURFACE2",
-              start: 70.611,
-              stop: 75.889,
-              value:
-                "I³ta² ndi¹⁴i² ba⁴² kã⁴, i⁴ywa² ndi¹⁴i² i⁴ywa² kwa'⁴a¹, u¹bi¹ nũ¹⁴ũ³ tu³ ba⁴² kã⁴ ba³.",
-            },
-            a32_SURFACE2: {
-              lineref: "a32_SURFACE2",
-              start: 75.889,
-              stop: 79.697,
-              value:
-                "Tã⁴² ku⁴nĩ² ko³o³ yu¹ku¹ tũ⁴ i³ta² <i>pastora</i> sa³kã⁴ ku⁴nĩ² ko³o³ tu³ yu¹ku¹ tũ⁴ kã⁴ ba³.",
-            },
-            a34_SURFACE2: {
-              lineref: "a34_SURFACE2",
-              start: 79.697,
-              stop: 86.903,
-              value: "A¹be³, sa³kã⁴ ỹã⁴ã² ya¹ kwi⁴i²⁴ ba⁴li⁴ ba⁴² kã⁴.",
-            },
-            a35_SURFACE2: {
-              lineref: "a35_SURFACE2",
-              start: 86.903,
-              stop: 96.045,
-              value:
-                "Ndi³kỹã⁴² kã⁴ nda⁴ka³ya²nã¹ tu⁴u²yu¹ a¹chi¹ ndi⁴ tã'¹⁴ã² chya'³a². A¹chi¹ ndi⁴ ya¹ i⁴yo² ndi³kĩ⁴ ba⁴² mĩ⁴ĩ⁴ i⁴yo², mĩ⁴ĩ⁴ i⁴yo² i³te² kã⁴ i³kã⁴ ndwa⁴a¹³² i⁴chya¹ tã³ i³kã⁴ nda³ka³ya²nẽ¹ ko⁴..., ko⁴ndwa² ta³ta²nã¹.",
-            },
-            a37_SURFACE2: {
-              lineref: "a37_SURFACE2",
-              start: 96.045,
-              stop: 104.113,
-              value:
-                "In³ka⁴chi¹ chi'⁴i⁴nẽ² jĩ'⁴ĩ⁴ tũ⁴ i³ta² kwã¹õ⁴ ba³ tu⁴u²yu¹ ĩ³ĩ³ tyem⁴pu².",
-            },
-            a38_SURFACE2: {
-              lineref: "a38_SURFACE2",
-              start: 104.113,
-              stop: 111.448,
-              value:
-                "I³ĩ³ tyem⁴pu² ya¹ kã⁴ ndi⁴ ndu⁴te¹ tã³ ja⁴chw̃ã⁴ã² jĩ'⁴ĩ⁴nã² ya¹, ya¹ bi³ko⁴ i³ta² ka⁴chyo²⁴ kã⁴ a¹chi¹, sa³kã⁴ ba⁴² ji⁴nĩ² yu'¹u¹ be² rã⁴, kwa¹⁴a² ji⁴nĩ²yu¹ tyem⁴pu² bi³tĩ³ ndi⁴,",
-            },
-            a40_SURFACE2: {
-              lineref: "a40_SURFACE2",
-              start: 111.448,
-              stop: 113.478,
-              value: "Ba¹⁴³ xi⁴ywa¹³² yu³mĩ⁴.",
-            },
-            a41_SURFACE2: {
-              lineref: "a41_SURFACE2",
-              start: 113.478,
-              stop: 117.752,
-              value:
-                "Ji¹⁴ndyo²⁴ sa¹a³ a³se² nã⁴ i⁴yo² ndi³kỹã⁴² tã³ chye'³e⁴² ndi⁴ xa³ku⁴nĩ⁴² xi⁴ywa¹³² nywe³e²⁴ ka¹a³.",
-            },
-            a44_SURFACE2: {
-              lineref: "a44_SURFACE2",
-              start: 124.14,
-              stop: 127.012,
-              value: "Raúl nã³nĩ⁴².",
-            },
-            a46_SURFACE2: {
-              lineref: "a46_SURFACE2",
-              start: 127.012,
-              stop: 130.175,
-              value: "U¹bi¹ xi³ko³ i¹ñũ¹ kwi¹ya¹ ku⁴u².",
-            },
-            a48_SURFACE2: {
-              lineref: "a48_SURFACE2",
-              start: 130.175,
-              stop: 130.175,
-              value: "Yoloxóchitl ku⁴u⁴ ñũ³ũ²yu¹.",
-            },
-          },
-        },
-        "RCG Traducción": {
-          display: "top",
-          color: "",
-          lines: {
-            a50: {
-              lineref: "a18",
-              start: 0,
-              stop: 7.1,
-              value: "Cuéntanos un poco sobre la flor de olote doméstica.",
-            },
-            a51: {
-              lineref: "a19",
-              start: 7.1,
-              stop: 11.972,
-              value:
-                "Cuántos tipos hay, dónde hay, y en qué tiempo lo siembran.",
-            },
-            a52: {
-              lineref: "a20",
-              start: 11.972,
-              stop: 16.909,
-              value: "Para qué lo utilizan, cómo son, y para qué se utilizan.",
-            },
-            a53: {
-              lineref: "a27",
-              start: 57.621,
-              stop: 58.351,
-              value: "¿Lo cosen en guirnaldas?",
-            },
-            a54: {
-              lineref: "a29",
-              start: 64.875,
-              stop: 65.885,
-              value: "¿Y huele bien?",
-            },
-            a55: {
-              lineref: "a33",
-              start: 79.697,
-              stop: 86.903,
-              value:
-                "¿Ah, sí? Son como, son pequeños.  Y los cosen y, este, y cómo recogen las semillas para sembrar?",
-            },
-            a56: {
-              lineref: "a36",
-              start: 96.045,
-              stop: 104.113,
-              value:
-                "Y ¿los siembran juntos con el cempazúchitl? Al mismo tiempo. ¿Ah, sí?",
-            },
-            a57: {
-              lineref: "a39",
-              start: 111.448,
-              stop: 113.478,
-              value: "¿No se da en temporada de seca?",
-            },
-            a58: {
-              lineref: "a42",
-              start: 117.752,
-              stop: 124.14,
-              value: "¿Ah, sí? Y, este, eso es todo, pues. Bueno.",
-            },
-            a59: {
-              lineref: "a43",
-              start: 124.14,
-              stop: 127.012,
-              value: "¿Cómo te llamas?",
-            },
-            a60: {
-              lineref: "a45",
-              start: 127.012,
-              stop: 130.175,
-              value: "¿Cuántos años tienes?",
-            },
-            a61: {
-              lineref: "a47",
-              start: 130.175,
-              stop: 132.305,
-              value: "¿Cómo se llama tu pueblo?",
-            },
-            a62: {
-              lineref: "a49",
-              start: 132.305,
-              stop: 134.468,
-              value: "Sí, está bien.",
-            },
-          },
-        },
-        "RFM Traducción": {
-          display: "top",
-          color: "",
-          lines: {
-            a63: {
-              lineref: "a21",
-              start: 16.909,
-              stop: 24.331,
-              value:
-                "La flor de olote doméstica es la que se ocupa en las ofrendas en los altares junto con la flor de cempazúchitl en todo santo,",
-            },
-            a64: {
-              lineref: "a22",
-              start: 24.331,
-              stop: 31.243,
-              value:
-                "las siembran en el tiempo en el que se siembran las semillas de cempazúchitl.",
-            },
-            a65: {
-              lineref: "a23",
-              start: 31.243,
-              stop: 40.327,
-              value:
-                "Aquí en el pueblo no se dan muy bien, en otros lugares, quizá más fríos se dan las flores muy bonitas, pero aquí en el pueblo se dan las flores muy pequeñas, creo.",
-            },
-            a66: {
-              lineref: "a24",
-              start: 40.327,
-              stop: 46.041,
-              value:
-                "Crece apenas así, sus flores son muy pequeñas, apenas así y",
-            },
-            a67: {
-              lineref: "a25",
-              start: 46.041,
-              stop: 53.917,
-              value:
-                "esas flores son las que se llevan en los ofrendas junto con las flores de cempazúchitl en el tiempo de todo santo, se dan muy poco aquí en el pueblo. No se da bien en este pueblo.",
-            },
-            a68: {
-              lineref: "a26",
-              start: 53.917,
-              stop: 57.621,
-              value:
-                "Quizá no lo siembran, ni yo no lo siembro porque para eso se necesitan las semillas.",
-            },
-            a69: {
-              lineref: "a28",
-              start: 58.351,
-              stop: 64.875,
-              value:
-                "Sí, los cosen con un hilo delgado. Sus guirnaldas son delgadas porque sus flores son muy pequeñas.",
-            },
-            a70: {
-              lineref: "a30",
-              start: 65.885,
-              stop: 70.611,
-              value:
-                "Sí tiene olor, huelen, sirven para llevarlas a ofrendar en los altares.",
-            },
-            a71: {
-              lineref: "a31",
-              start: 70.611,
-              stop: 75.889,
-              value:
-                "Sus flores son rosas, hay rosas y rojas, esas también son de dos tipos.",
-            },
-            a72: {
-              lineref: "a32",
-              start: 75.889,
-              stop: 79.697,
-              value:
-                "Se parecen a las hojas de la flor de pastora las hojas de ésa planta.",
-            },
-            a73: {
-              lineref: "a34",
-              start: 79.697,
-              stop: 86.903,
-              value: "Sí asi son verdes, son pequeñas.",
-            },
-            a74: {
-              lineref: "a35",
-              start: 86.903,
-              stop: 96.045,
-              value:
-                "Recogen las semillas de esas flores creo, porque yo no la he sembrado. Porque tienen semillas, donde tiene sus flores las secan para recoger las semillas para sembrar.",
-            },
-            a75: {
-              lineref: "a37",
-              start: 96.045,
-              stop: 104.113,
-              value: "Sí los siembran al mismo tiempo que el cempazúchitl.",
-            },
-            a76: {
-              lineref: "a38",
-              start: 104.113,
-              stop: 111.448,
-              value:
-                "Al mismo tiempo se da, porque se ocupa en todo santo, sé que se da en ese tiempo, no hay en esta temporada que yo sepa.",
-            },
-            a77: {
-              lineref: "a40",
-              start: 111.448,
-              stop: 113.478,
-              value: "No se da en temporada de seca.",
-            },
-            a78: {
-              lineref: "a41",
-              start: 113.478,
-              stop: 117.752,
-              value:
-                "No sabemos si al sembrarla se va dar en este pueblo porque aqui se da muy poco.",
-            },
-            a79: {
-              lineref: "a44",
-              start: 124.14,
-              stop: 127.012,
-              value: "Me llamo Raúl.",
-            },
-            a80: {
-              lineref: "a46",
-              start: 127.012,
-              stop: 130.175,
-              value: "Tengo 46 años.",
-            },
-            a81: {
-              lineref: "a48",
-              start: 130.175,
-              stop: 132.313,
-              value: "Mi pueblo es Yoloxóchitl.",
-            },
-          },
-        },
-      };
+  "Rey Castillo Garc\u00eda": {
+    "display": "bottom",
+    "color": "5721EC",
+    "lines": {
+      "a18": {
+        "lineref": "a18",
+        "start": 0,
+        "stop": 0,
+        "value": "Nda\u00b3tu&#039;\u2074un\u2074 lu\u00b3chi&#039;\u2074i\u00b2=un\u2074 ji&#039;\u2074in\u2074=ndu\u00b2 xa&#039;\u00b9a\u2074 i\u00b3ta\u00b2 sa\u00b3in\u2074 ta\u00b3ta\u00b2 chi\u00b9."
+      },
+      "a19": {
+        "lineref": "a19",
+        "start": 7.1,
+        "stop": 7.1,
+        "value": "Sa\u00b9a\u00b3 nu\u00b9\u2074u\u00b3 ba\u2074\u00b2 i\u2074yo\u00b2 tan\u00b3 sa\u00b9a\u00b3, nda\u2074a\u00b2 ba\u2074\u00b2 chi&#039;\u2074i\u2074=na\u207d\u00b2\u207e=e\u00b2 nda\u2074a\u00b2 tiem\u2074pu\u00b2 chi&#039;\u2074i\u2074=na\u207d\u00b2\u207e=e\u00b2"
+      },
+      "a20": {
+        "lineref": "a20",
+        "start": 11.972,
+        "stop": 11.972,
+        "value": "na\u2074chu\u00b3 jo\u2074ndo\u00b9\u00b3=a\u00b2 ji&#039;\u2074in\u2074=na\u00b2, sa\u00b9a\u00b3 i\u2074in\u207d\u2074\u207e=a\u00b2 chi\u00b9 tan\u00b3 na\u2074chu\u00b3 jo\u2074ndo\u00b9\u00b3=a\u00b2 chi\u00b9."
+      },
+      "a27": {
+        "lineref": "a27",
+        "start": 57.621,
+        "stop": 57.621,
+        "value": "\u00bfAn\u2074 ki\u2074ku\u00b9\u00b3=na\u207d\u00b3\u207e=e\u00b3?"
+      },
+      "a29": {
+        "lineref": "a29",
+        "start": 64.875,
+        "stop": 64.875,
+        "value": "\u00bfAn\u2074 xa&#039;\u2074an\u00b2 bi\u00b9xi\u207d\u00b9\u207e=a\u00b9?"
+      },
+      "a33": {
+        "lineref": "a33",
+        "start": 79.697,
+        "stop": 79.697,
+        "value": "An\u2074 sa\u00b3kan\u2074 ba\u00b3. Tan\u2074\u00b2 i\u2074yo\u00b2, ya\u00b9 ba\u2074li\u2074 ba\u2074\u00b2 kan\u2074. Tan\u00b3 ki\u2074ku\u00b9\u00b3=na\u207d\u00b2\u207e=e\u00b2 tan\u00b3, ya\u00b9kan\u00b3, tan\u00b3 \u00bfsa\u00b9a\u00b3 i\u2074xa\u00b3=na\u00b2 nda\u2074-ka\u00b3ya\u00b2=na\u00b9 ta\u00b3ta\u00b2 tin\u00b3?"
+      },
+      "a36": {
+        "lineref": "a36",
+        "start": 96.045,
+        "stop": 96.045,
+        "value": "Tan\u00b3 \u00bfan\u2074 a\u00b9su\u00b3 in\u00b3ka\u2074chi\u00b9 chi&#039;\u2074i\u2074=na\u207d\u00b2\u207e=e\u00b2 ji&#039;\u2074in\u2074, ya\u00b9kan\u00b3 ...? I\u00b3in\u00b3 tiem\u2074pu\u00b2. An\u2074 sa\u00b3kan\u2074 ba\u00b3."
+      },
+      "a39": {
+        "lineref": "a39",
+        "start": 111.448,
+        "stop": 111.448,
+        "value": "Ba\u00b9\u2074\u00b3 xi\u2074yo\u00b9\u00b3=a\u00b2 yu\u00b3mi\u2074."
+      },
+      "a42": {
+        "lineref": "a42",
+        "start": 117.752,
+        "stop": 117.752,
+        "value": "An\u2074 sa\u00b3kan\u2074 ba\u00b3 te\u00b9. Tan\u00b3 ya\u00b9kan\u00b3, sa\u00b3kan\u2074 ku\u2074u\u2074 ndi&#039;\u00b3i\u00b3 ba\u207d\u00b3\u207e=e\u00b2 ran\u2074. Ba&#039;\u00b9a\u00b3."
+      },
+      "a43": {
+        "lineref": "a43",
+        "start": 124.14,
+        "stop": 124.14,
+        "value": "\u00bfSa\u00b9a\u00b3 na\u00b3ni\u207d\u2074\u207e=un\u2074?"
+      },
+      "a45": {
+        "lineref": "a45",
+        "start": 127.012,
+        "stop": 127.012,
+        "value": "\u00bfSa\u00b9a\u00b3 kwi\u00b9ya\u207d\u00b9\u207e=on\u2074?"
+      },
+      "a47": {
+        "lineref": "a47",
+        "start": 130.175,
+        "stop": 131.876,
+        "value": "\u00bfSa\u00b9a\u00b3 na\u00b3ni\u2074 \u00f1u\u00b3u\u00b2=un\u2074?"
+      },
+      "a49": {
+        "lineref": "a49",
+        "start": 132.305,
+        "stop": 132.313,
+        "value": "Ba&#039;\u00b9a\u00b3 ba\u00b3."
+      }
+    }
+  },
+  "Rey Castillo Garc\u00eda Surface-2": {
+    "display": "nodisplay",
+    "color": "3C4EF1",
+    "lines": {
+      "a18_SURFACE2": {
+        "lineref": "a18_SURFACE2",
+        "start": 0,
+        "stop": 7.1,
+        "value": "Nda\u00b3t\u0169&#039;\u2074\u0169\u2074 lu\u00b3ch\u1ef9\u0169&#039;\u2074\u0169\u00b2\u2074 j\u0129&#039;\u2074\u0129\u2074ndu\u00b2 xa&#039;\u00b9a\u2074 i\u00b3ta\u00b2 s\u00e3\u00b3\u0129\u2074 ta\u00b3ta\u00b2 chi\u00b9."
+      },
+      "a19_SURFACE2": {
+        "lineref": "a19_SURFACE2",
+        "start": 7.1,
+        "stop": 11.972,
+        "value": "Sa\u00b9a\u00b3 n\u0169\u00b9\u2074\u0169\u00b3 ba\u2074\u00b2 i\u2074yo\u00b2 t\u00e3\u00b3 sa\u00b9a\u00b3, nda\u2074a\u00b2 ba\u2074\u00b2 chi&#039;\u2074i\u2074n\u1ebd\u00b2 nda\u2074a\u00b2 tyem\u2074pu\u00b2 chi&#039;\u2074i\u2074n\u1ebd\u00b2."
+      },
+      "a20_SURFACE2": {
+        "lineref": "a20_SURFACE2",
+        "start": 11.972,
+        "stop": 16.909,
+        "value": "n\u00e3\u2074chu\u00b3 jo\u2074ndwa\u00b9\u00b3\u00b2 j\u0129&#039;\u2074\u0129\u2074n\u00e3\u00b2, sa\u00b9a\u00b3 \u1ef9\u00e3\u2074\u00e3\u00b2 chi\u00b9 t\u00e3\u00b3 n\u00e3\u2074chu\u00b3 jo\u2074ndwa\u00b9\u00b3\u00b2 chi\u00b9."
+      },
+      "a27_SURFACE2": {
+        "lineref": "a27_SURFACE2",
+        "start": 57.621,
+        "stop": 58.351,
+        "value": "\u00bfAn\u2074 ki\u2074ku\u00b9\u00b3n\u1ebd\u00b3?"
+      },
+      "a29_SURFACE2": {
+        "lineref": "a29_SURFACE2",
+        "start": 64.875,
+        "stop": 65.885,
+        "value": "\u00bfAn\u2074 x\u00e3&#039;\u2074\u00e3\u00b2 bi\u00b9xya\u00b9?"
+      },
+      "a33_SURFACE2": {
+        "lineref": "a33_SURFACE2",
+        "start": 79.697,
+        "stop": 86.903,
+        "value": "An\u2074 sa\u00b3k\u00e3\u2074 ba\u00b3. T\u00e3\u2074\u00b2 i\u2074yo\u00b2 ya\u00b9 ba\u2074li\u2074 ba\u2074\u00b2 k\u00e3\u2074. T\u00e3\u00b3 ki\u2074ku\u00b9\u00b3n\u1ebd\u00b2 t\u00e3\u00b3, ya\u00b9k\u00e3\u00b3, t\u00e3\u00b3 \u00bfsa\u00b9a\u00b3 i\u2074xa\u00b3n\u00e3\u00b2 nda\u2074ka\u00b3ya\u00b2n\u00e3\u00b9 ta\u00b3ta\u00b2 t\u0129\u00b3?"
+      },
+      "a36_SURFACE2": {
+        "lineref": "a36_SURFACE2",
+        "start": 96.045,
+        "stop": 104.113,
+        "value": "T\u00e3\u00b3 \u00bf\u00e3\u2074 a\u00b9su\u00b3 \u0129\u00b3ka\u2074chi\u00b9 chi&#039;\u2074i\u2074n\u1ebd\u00b2 j\u0129&#039;\u2074\u0129\u2074, ya\u00b9k\u00e3\u00b3 ...?  I\u00b3\u0129\u00b3 tyem\u2074pu\u00b2. An\u2074 sa\u00b3k\u00e3\u2074 ba\u00b3."
+      },
+      "a39_SURFACE2": {
+        "lineref": "a39_SURFACE2",
+        "start": 111.448,
+        "stop": 113.478,
+        "value": "Ba\u00b9\u2074\u00b3 xi\u2074ywa\u00b9\u00b3\u00b2 yu\u00b3m\u0129\u2074."
+      },
+      "a42_SURFACE2": {
+        "lineref": "a42_SURFACE2",
+        "start": 117.752,
+        "stop": 124.14,
+        "value": "An\u2074 sa\u00b3k\u00e3\u2074 ba\u00b3 te\u00b9. T\u00e3\u00b3 ya\u00b9k\u00e3\u00b3, sa\u00b3k\u00e3\u2074 ku\u2074u\u2074 ndi&#039;\u00b3i\u00b3 be\u00b2 r\u00e3\u2074. Ba&#039;\u00b9a\u00b3."
+      },
+      "a43_SURFACE2": {
+        "lineref": "a43_SURFACE2",
+        "start": 124.14,
+        "stop": 127.012,
+        "value": "\u00bfSa\u00b9a\u00b3 n\u00e3\u00b3n\u1ef9\u0169\u2074?"
+      },
+      "a45_SURFACE2": {
+        "lineref": "a45_SURFACE2",
+        "start": 127.012,
+        "stop": 130.175,
+        "value": "\u00bfSa\u00b9a\u00b3 kwi\u00b9\u1ef9\u00f5\u2074?"
+      },
+      "a47_SURFACE2": {
+        "lineref": "a47_SURFACE2",
+        "start": 130.175,
+        "stop": 132.305,
+        "value": "\u00bfSa\u00b9a\u00b3 n\u00e3\u00b3n\u0129\u2074 \u00f1\u0169\u00b3\u0169\u00b2\u2074?"
+      },
+      "a49_SURFACE2": {
+        "lineref": "a49_SURFACE2",
+        "start": 132.313,
+        "stop": 134.468,
+        "value": "Ba&#039;\u00b9a\u00b3 ba\u00b3."
+      }
+    }
+  },
+  "Ra\u00fal Felipe Margarito": {
+    "display": "bottom",
+    "color": "C10FF7",
+    "lines": {
+      "a21": {
+        "lineref": "a21",
+        "start": 16.909,
+        "stop": 16.909,
+        "value": "I\u00b3ta\u00b2 sa\u00b3in\u2074 ta\u00b3ta\u00b2 kan\u2074 ba\u2074\u00b2 ya\u00b9, ya\u00b9 ka\u2074chi\u00b2=o\u2074 ndo\u2074ko\u00b3to\u207d\u00b3\u207e=e\u2074 ji&#039;\u2074in\u2074 i\u00b3ta\u00b2 kwa\u00b9on\u2074 ka\u2074chi\u00b2=o\u2074 ya\u00b9 bi\u00b3ko\u2074 i\u00b3ta\u00b2,"
+      },
+      "a22": {
+        "lineref": "a22",
+        "start": 24.331,
+        "stop": 24.331,
+        "value": "ya\u00b9 chi&#039;\u2074i\u2074=na\u207d\u00b2\u207e=e\u00b2 kan\u2074 ndi\u2074 a\u00b9su\u00b3 tiem\u2074pu\u00b2 ka\u00b3ta\u00b2=e\u2074 tun\u2074 i\u00b3ta\u00b2 kwa\u00b9on\u2074 i\u00b3kan\u2074 ba\u2074\u00b2 chi\u00b3..., ka\u00b3ta\u00b2 tu\u207d\u00b3\u207e=e\u2074 ya\u00b9 kan\u2074 ndi\u00b3kin\u2074=a\u00b2 kan\u2074 tan\u00b3"
+      },
+      "a23": {
+        "lineref": "a23",
+        "start": 31.243,
+        "stop": 31.243,
+        "value": "Xi\u00b9\u2074in\u00b3=ni\u2074\u00b2 bi\u2074=a\u00b2 ko\u00b3o\u207d\u00b3\u207e=a\u00b2 \u00f1u\u00b3u\u00b2=e\u2074 ka\u00b9a\u00b3 ndi\u2074 ba\u00b3 ba\u00b9\u2074\u00b3 ndu\u2074ta&#039;\u00b3an\u207d\u00b2\u207e=e\u00b2 ko\u00b3o\u207d\u00b3\u207e=a\u00b2 ka\u00b9a\u00b3 ndi\u2074 \u00f1u\u00b3u\u00b2 ja\u00b9, an\u2074 \u00f1u\u00b3u\u00b2 sa&#039;\u2074an\u2074 ba\u2074\u00b2 an\u2074 \u00f1u\u00b3u\u00b2 bi\u00b9xin\u00b3 ka\u00b9 i\u00b3kan\u2074 ba\u2074\u00b2 la\u00b3tun\u2074 xi\u2074yo\u00b9\u00b3=a\u00b2 tan\u00b3 \u00f1u\u00b3u\u00b2=e\u2074 ka\u00b9a\u00b3 ndi\u2074 kwa\u2074chi\u00b3=ni\u2074\u00b2 xa&#039;\u2074nu\u00b3=run\u2074 tu\u2074u\u00b2=yu\u00b9."
+      },
+      "a24": {
+        "lineref": "a24",
+        "start": 40.327,
+        "stop": 40.327,
+        "value": "So&#039;\u00b3o\u00b3 so&#039;\u00b3o\u00b3 ti\u2074 ba\u00b3 xa&#039;\u2074nu\u00b3=run\u2074 tan\u00b3 i\u2074yo\u00b2 i\u00b3ta\u00b2=run\u2074, ba\u2074li\u2074=ni\u2074\u00b2 nu\u00b9\u2074u\u207d\u00b3\u207e=a\u00b2 so&#039;\u00b3o\u00b3 so&#039;\u00b3o\u00b3 ti\u2074 ba\u2074li\u2074 nu\u00b9\u2074u\u207d\u00b3\u207e=a\u00b2 tan\u00b3"
+      },
+      "a25": {
+        "lineref": "a25",
+        "start": 46.041,
+        "stop": 46.041,
+        "value": "ya\u00b9 kan\u2074 ba\u2074\u00b2 kwa&#039;\u00b9an\u00b9 ji&#039;\u2074in\u207d\u2074\u207e=o\u2074 pa\u00b3san\u2074tu\u00b2 ndo\u00b3ko\u00b3to\u207d\u00b3\u207e=e\u2074 ji&#039;\u2074in\u2074 i\u00b3ta\u00b2 kwa\u00b9on\u2074 na\u2074tu\u00b2 i\u2074yo\u207d\u00b2\u207e=a\u00b2 xa\u00b3ku\u2074=ni\u2074\u00b2 ba\u2074\u00b2 xi\u2074yo\u00b9\u00b3=a\u00b2 \u00f1u\u00b3u\u00b2 ka\u00b9a\u00b3. Ko\u00b9\u2074o\u00b3 ba&#039;\u00b9a\u00b3 ba&#039;\u00b9a\u00b3=e\u00b2 kan\u2074 \u00f1u\u00b3u\u00b2 ka\u00b9a\u00b3 ndi\u2074,"
+      },
+      "a26": {
+        "lineref": "a26",
+        "start": 53.917,
+        "stop": 53.917,
+        "value": "an\u2074 ba\u00b9\u2074\u00b3 chi&#039;\u2074i\u2074=na\u207d\u00b2\u207e=e\u00b2 an\u2074 ko\u00b9\u2074o\u00b3 ni\u00b3 mi\u00b3i\u2074=\u00b2 tan\u00b3 ba\u00b9\u2074\u00b3 chi&#039;\u2074i\u207d\u2074\u207e=a\u00b2 a\u00b9chi\u00b9 ndi\u2074 ta\u00b3ta\u207d\u00b2\u207e=e\u00b2 ku\u2074ni\u207d\u00b2\u207e=a\u00b2."
+      },
+      "a28": {
+        "lineref": "a28",
+        "start": 58.351,
+        "stop": 58.351,
+        "value": "Ki\u2074ku\u00b9\u00b3=na\u207d\u00b2\u207e=e\u00b2 ji&#039;\u2074in\u2074 yo&#039;\u00b3o\u2074 ki\u2074ku\u00b9\u00b3=na\u207d\u00b3\u207e=e\u00b3. Ni\u2074i\u00b2\u2074 chi&#039;\u2074i\u00b2 so&#039;\u00b3o\u00b3 so&#039;\u00b3o\u00b3 ti\u2074 yo&#039;\u00b3o\u2074=a\u00b2 ya\u00b9 sa\u00b3kan\u2074 ku\u2074u\u207d\u2074\u207e=a\u00b2 ya\u00b9 i\u00b3ta\u00b2 ba\u2074li\u2074=ni\u2074\u00b2 ba\u2074\u00b3."
+      },
+      "a30": {
+        "lineref": "a30",
+        "start": 65.885,
+        "stop": 65.885,
+        "value": "Xa&#039;\u2074an\u00b2 bi\u00b9xi\u00b9 ta&#039;\u00b3an\u207d\u00b2\u207e=e\u00b2, xa&#039;\u2074an\u00b2 bi\u00b9xi\u207d\u00b9\u207e=a\u00b9 ba&#039;\u00b9a\u00b3 xi\u00b3ko\u00b2 ba\u207d\u00b3\u207e=e\u00b2 ku&#039;\u00b9un\u00b9 ji&#039;\u2074in\u207d\u2074\u207e=o\u2074 ndo\u00b3ko\u00b3to\u207d\u00b3\u207e=e\u2074."
+      },
+      "a31": {
+        "lineref": "a31",
+        "start": 70.611,
+        "stop": 70.611,
+        "value": "I\u00b3ta\u00b2 ndi\u00b9\u2074i\u00b2 ba\u2074\u00b2 kan\u2074, i\u2074yo\u207d\u00b2\u207e=a\u00b2 ndi\u00b9\u2074i\u00b2 i\u2074yo\u207d\u00b2\u207e=a\u00b2 kwa&#039;\u2074a\u00b9, u\u00b9bi\u00b9 nu\u00b9\u2074u\u00b3 tu\u00b3 ba\u2074\u00b2 kan\u2074 ba\u00b3."
+      },
+      "a32": {
+        "lineref": "a32",
+        "start": 75.889,
+        "stop": 75.889,
+        "value": "Tan\u2074\u00b2 ku\u2074ni\u00b2 ko\u00b3o\u00b3 yu\u00b9ku\u00b9 tun\u2074 i\u00b3ta\u00b2 <i>pastora</i> sa\u00b3kan\u2074 ku\u2074ni\u00b2 ko\u00b3o\u00b3 tu\u00b3 yu\u00b9ku\u00b9 tun\u2074 kan\u2074 ba\u00b3."
+      },
+      "a34": {
+        "lineref": "a34",
+        "start": 79.697,
+        "stop": 86.903,
+        "value": "A\u00b9be\u00b3, sa\u00b3kan\u2074 i\u2074in\u207d\u2074\u207e=a\u00b2 ya\u00b9 kwi\u2074i\u00b2\u2074 ba\u2074li\u2074 ba\u2074\u00b2 kan\u2074."
+      },
+      "a35": {
+        "lineref": "a35",
+        "start": 86.903,
+        "stop": 86.903,
+        "value": "Ndi\u00b3kin\u2074=a\u00b2 kan\u2074 nda\u2074-ka\u00b3ya\u00b2=na\u00b9 tu\u2074u\u00b2=yu\u00b9 a\u00b9chi\u00b9 ndi\u2074 ta&#039;\u00b9\u2074an\u00b2 chi&#039;\u00b3i\u207d\u00b3\u207e=a\u00b2. A\u00b9chi\u00b9 ndi\u2074 ya\u00b9 i\u2074yo\u00b2 ndi\u00b3kin\u2074 ba\u2074\u00b2 mi\u2074i\u2074 i\u2074yo\u00b2, mi\u2074i\u2074 i\u2074yo\u00b2 i\u00b3ta\u207d\u00b2\u207e=e\u00b2 kan\u2074 i\u00b3kan\u2074 ndo\u2074o\u00b9\u00b3=a\u00b2 i\u2074chi\u207d\u00b9\u207e=a\u00b9 tan\u00b3 i\u00b3kan\u2074 nda\u00b3-ka\u00b3ya\u00b2=na\u207d\u00b9\u207e=e\u00b9 ko\u2074..., ko\u2074ndo\u207d\u00b3\u207e=a\u00b2 ta\u00b3ta\u00b2=na\u00b9."
+      },
+      "a37": {
+        "lineref": "a37",
+        "start": 96.045,
+        "stop": 104.113,
+        "value": "In\u00b3ka\u2074chi\u00b9 chi&#039;\u2074i\u2074=na\u207d\u00b2\u207e=e\u00b2 ji&#039;\u2074in\u2074 tun\u2074 i\u00b3ta\u00b2 kwa\u00b9on\u2074 ba\u00b3 tu\u2074u\u00b2=yu\u00b9, i\u00b3in\u00b3 tiem\u2074pu\u00b2."
+      },
+      "a38": {
+        "lineref": "a38",
+        "start": 104.113,
+        "stop": 104.113,
+        "value": "I\u00b3in\u00b3 tiem\u2074pu\u00b2 ya\u00b9 kan\u2074 ndi\u2074 ndu\u2074ta\u207d\u00b9\u207e=e\u00b9 tan\u00b3 ja\u2074chiu\u2074un\u207d\u2074\u207e=a\u00b2 ji&#039;\u2074in\u2074=na\u00b2 ya\u00b9, ya\u00b9 bi\u00b3ko\u2074 i\u00b3ta\u00b2 ka\u2074chi\u00b2=o\u2074 kan\u2074 a\u00b9chi\u00b9, sa\u00b3kan\u2074 ba\u2074\u00b2 ji\u2074ni\u00b2 yu&#039;\u00b9u\u00b9 ba\u207d\u00b3\u207e=e\u00b2 ran\u2074, ko\u00b9\u2074o\u207d\u00b3\u207e=a\u00b2 ji\u2074ni\u00b2=yu\u00b9 tiem\u2074pu\u00b2 bi\u00b3tin\u00b3 ndi\u2074,"
+      },
+      "a40": {
+        "lineref": "a40",
+        "start": 111.448,
+        "stop": 113.478,
+        "value": "Ba\u00b9\u2074\u00b3 xi\u2074yo\u00b9\u00b3=a\u00b2 yu\u00b3mi\u2074."
+      },
+      "a41": {
+        "lineref": "a41",
+        "start": 113.478,
+        "stop": 113.478,
+        "value": "Ji\u00b9\u2074ni\u00b2=o\u2074 sa\u00b9a\u00b3 a\u00b3sa\u207d\u00b3\u207e=e\u00b2 na\u2074 i\u2074yo\u00b2 ndi\u00b3kin\u2074=a\u00b2 tan\u00b3 chi&#039;\u00b3i\u207d\u00b3\u207e=o\u2074=e\u00b2 ndi\u2074 xa\u00b3ku\u2074=ni\u2074\u00b2 xi\u2074yo\u00b9\u00b3=a\u00b2 \u00f1u\u00b3u\u00b2=e\u2074 ka\u00b9a\u00b3."
+      },
+      "a44": {
+        "lineref": "a44",
+        "start": 124.14,
+        "stop": 127.012,
+        "value": "Ra\u00fal na\u00b3ni\u2074=\u00b2."
+      },
+      "a46": {
+        "lineref": "a46",
+        "start": 127.012,
+        "stop": 130.175,
+        "value": "U\u00b9bi\u00b9 xi\u00b3ko\u00b3 i\u00b9\u00f1u\u00b9 kwi\u00b9ya\u00b9 ku\u2074u\u207d\u2074\u207e=\u00b2."
+      },
+      "a48": {
+        "lineref": "a48",
+        "start": 130.175,
+        "stop": 132.313,
+        "value": "Yolox\u00f3chitl ku\u2074u\u2074 \u00f1u\u00b3u\u00b2=yu\u00b9."
+      }
+    }
+  },
+  "Ra\u00fal Felipe Margarito Surface-2": {
+    "display": "nodisplay",
+    "color": "5927BB",
+    "lines": {
+      "a21_SURFACE2": {
+        "lineref": "a21_SURFACE2",
+        "start": 16.909,
+        "stop": 24.331,
+        "value": "I\u00b3ta\u00b2 s\u00e3\u00b3\u0129\u2074 ta\u00b3ta\u00b2 k\u00e3\u2074 ba\u2074\u00b2 ya\u00b9, ya\u00b9 ka\u2074chyo\u00b2\u2074 ndo\u2074ko\u00b3twe\u2074 j\u0129&#039;\u2074\u0129\u2074 i\u00b3ta\u00b2 kw\u00e3\u00b9\u00f5\u2074 ka\u2074chyo\u00b2\u2074 ya\u00b9 bi\u00b3ko\u2074 i\u00b3ta\u00b2,"
+      },
+      "a22_SURFACE2": {
+        "lineref": "a22_SURFACE2",
+        "start": 24.331,
+        "stop": 31.243,
+        "value": "ya\u00b9 chi&#039;\u2074i\u2074n\u1ebd\u00b2 k\u00e3\u2074 ndi\u2074 a\u00b9su\u00b3 tyem\u2074pu\u00b2 ka\u00b3te\u00b2\u2074 t\u0169\u2074 i\u00b3ta\u00b2 kw\u00e3\u00b9\u00f5\u2074 i\u00b3k\u00e3\u2074 ba\u2074\u00b2 chi\u00b3..., ka\u00b3ta\u00b2 twe\u2074 ya\u00b9 k\u00e3\u2074 ndi\u00b3k\u1ef9\u00e3\u2074\u00b2 k\u00e3\u2074 t\u00e3\u00b3"
+      },
+      "a23_SURFACE2": {
+        "lineref": "a23_SURFACE2",
+        "start": 31.243,
+        "stop": 40.327,
+        "value": "X\u0129\u00b9\u2074\u0129n\u00b3=ni\u2074\u00b2 bya\u2074\u00b2 kwa\u00b3a\u00b2 nywe\u00b3e\u00b2\u2074 ka\u00b9a\u00b3 ndi\u2074 ba\u00b3 ba\u00b9\u2074\u00b3 ndu\u2074t\u1ebd&#039;\u00b3\u1ebd\u00b2 kwa\u00b3a\u00b2 ka\u00b9a\u00b3 ndi\u2074 \u00f1\u0169\u00b3\u0169\u00b2 ja\u00b9, \u00e3\u2074 \u00f1\u0169\u00b3\u0169\u00b2 s\u00e3&#039;\u2074\u00e3\u2074 ba\u2074\u00b2 \u00e3\u2074 \u00f1\u0169\u00b3\u0169\u00b2 bi\u00b9x\u0129\u00b3 ka\u00b9 i\u00b3k\u00e3\u2074 ba\u2074\u00b2 la\u00b3t\u0169\u2074 xi\u2074ywa\u00b9\u00b3\u00b2 t\u00e3\u00b3 nywe\u00b3e\u00b2\u2074 ka\u00b9a\u00b3 ndi\u2074 kwa\u2074chi\u00b3n\u0129\u2074\u00b2 xa&#039;\u2074n\u0169\u00b3r\u0169\u2074 tu\u2074u\u00b2yu\u00b9."
+      },
+      "a24_SURFACE2": {
+        "lineref": "a24_SURFACE2",
+        "start": 40.327,
+        "stop": 46.041,
+        "value": "So&#039;\u00b3o\u00b3 so&#039;\u00b3o\u00b3 ti\u2074 ba\u00b3 xa&#039;\u2074n\u0169\u00b3r\u0169\u2074 t\u00e3\u00b3 i\u2074yo\u00b2 i\u00b3ta\u00b2r\u0169\u2074, ba\u2074li\u2074n\u0129\u2074\u00b2 nw\u0303\u00e3\u00b9\u2074\u00e3\u00b2 so&#039;\u00b3o\u00b3 so&#039;\u00b3o\u00b3 ti\u2074 ba\u2074li\u2074 nw\u0303\u00e3\u00b9\u2074\u00e3\u00b2 t\u00e3\u00b3"
+      },
+      "a25_SURFACE2": {
+        "lineref": "a25_SURFACE2",
+        "start": 46.041,
+        "stop": 53.917,
+        "value": "ya\u00b9 k\u00e3\u2074 ba\u2074\u00b2 kw\u00e3&#039;\u00b9\u00e3\u00b9 jyo&#039;\u2074o\u2074 pa\u00b3s\u00e3\u2074tu\u00b2 ndo\u00b3ko\u00b3twe\u2074 j\u0129&#039;\u2074\u0129\u2074 i\u00b3ta\u00b2 kw\u00e3\u00b9\u00f5\u2074 n\u00e3\u2074tu\u00b2 i\u2074ywa\u00b2 xa\u00b3ku\u2074n\u0129\u2074\u00b2 ba\u2074\u00b2 xi\u2074ywa\u00b9\u00b3\u00b2 \u00f1\u0169\u00b3\u0169\u00b2 ka\u00b9a\u00b3. Ko\u00b9\u2074o\u00b3 ba&#039;\u00b9a\u00b3 be&#039;\u00b9e\u00b3\u00b2 k\u00e3\u2074 \u00f1\u0169\u00b3\u0169\u00b2 ka\u00b9a\u00b3 ndi\u2074,"
+      },
+      "a26_SURFACE2": {
+        "lineref": "a26_SURFACE2",
+        "start": 53.917,
+        "stop": 57.621,
+        "value": "\u00e3\u2074 ba\u00b9\u2074\u00b3 chi&#039;\u2074i\u2074n\u1ebd\u00b2 \u00e3\u2074 ko\u00b9\u2074o\u00b3 n\u0129\u00b3 m\u0129\u00b3\u0129\u2074\u00b2 t\u00e3\u00b3 ba\u00b9\u2074\u00b3 chya&#039;\u2074a\u00b2 a\u00b9chi\u00b9 ndi\u2074 ta\u00b3te\u00b2 ku\u2074n\u1ef9\u00e3\u00b2."
+      },
+      "a28_SURFACE2": {
+        "lineref": "a28_SURFACE2",
+        "start": 58.351,
+        "stop": 64.875,
+        "value": "Ki\u2074ku\u00b9\u00b3n\u1ebd\u00b2 j\u0129&#039;\u2074\u0129\u2074 yo&#039;\u00b3o\u2074 ki\u2074ku\u00b9\u00b3n\u1ebd\u00b3. Ni\u2074i\u00b2\u2074 chi&#039;\u2074i\u00b2 so&#039;\u00b3o\u00b3 so&#039;\u00b3o\u00b3 ti\u2074 ywa&#039;\u00b3a\u2074\u00b2 ya\u00b9 sa\u00b3k\u00e3\u2074 kwa\u2074a\u00b2 ya\u00b9 i\u00b3ta\u00b2 ba\u2074li\u2074n\u0129\u2074\u00b2 ba\u2074\u00b3."
+      },
+      "a30_SURFACE2": {
+        "lineref": "a30_SURFACE2",
+        "start": 65.885,
+        "stop": 70.611,
+        "value": "X\u00e3&#039;\u2074\u00e3\u00b2 bi\u00b9xi\u00b9 t\u1ebd&#039;\u00b3\u1ebd\u00b2, x\u00e3&#039;\u2074\u00e3\u00b2 bi\u00b9xya\u00b9 ba&#039;\u00b9a\u00b3 xi\u00b3ko\u00b2 be\u00b2 k\u0169&#039;\u00b9\u0169\u00b9 jyo&#039;\u2074o\u2074 ndo\u00b3ko\u00b3twe\u2074."
+      },
+      "a31_SURFACE2": {
+        "lineref": "a31_SURFACE2",
+        "start": 70.611,
+        "stop": 75.889,
+        "value": "I\u00b3ta\u00b2 ndi\u00b9\u2074i\u00b2 ba\u2074\u00b2 k\u00e3\u2074, i\u2074ywa\u00b2 ndi\u00b9\u2074i\u00b2 i\u2074ywa\u00b2 kwa&#039;\u2074a\u00b9, u\u00b9bi\u00b9 n\u0169\u00b9\u2074\u0169\u00b3 tu\u00b3 ba\u2074\u00b2 k\u00e3\u2074 ba\u00b3."
+      },
+      "a32_SURFACE2": {
+        "lineref": "a32_SURFACE2",
+        "start": 75.889,
+        "stop": 79.697,
+        "value": "T\u00e3\u2074\u00b2 ku\u2074n\u0129\u00b2 ko\u00b3o\u00b3 yu\u00b9ku\u00b9 t\u0169\u2074 i\u00b3ta\u00b2 <i>pastora</i> sa\u00b3k\u00e3\u2074 ku\u2074n\u0129\u00b2 ko\u00b3o\u00b3 tu\u00b3 yu\u00b9ku\u00b9 t\u0169\u2074 k\u00e3\u2074 ba\u00b3."
+      },
+      "a34_SURFACE2": {
+        "lineref": "a34_SURFACE2",
+        "start": 79.697,
+        "stop": 86.903,
+        "value": "A\u00b9be\u00b3, sa\u00b3k\u00e3\u2074 \u1ef9\u00e3\u2074\u00e3\u00b2 ya\u00b9 kwi\u2074i\u00b2\u2074 ba\u2074li\u2074 ba\u2074\u00b2 k\u00e3\u2074."
+      },
+      "a35_SURFACE2": {
+        "lineref": "a35_SURFACE2",
+        "start": 86.903,
+        "stop": 96.045,
+        "value": "Ndi\u00b3k\u1ef9\u00e3\u2074\u00b2 k\u00e3\u2074 nda\u2074ka\u00b3ya\u00b2n\u00e3\u00b9 tu\u2074u\u00b2yu\u00b9 a\u00b9chi\u00b9 ndi\u2074 t\u00e3&#039;\u00b9\u2074\u00e3\u00b2 chya&#039;\u00b3a\u00b2. A\u00b9chi\u00b9 ndi\u2074 ya\u00b9 i\u2074yo\u00b2 ndi\u00b3k\u0129\u2074 ba\u2074\u00b2 m\u0129\u2074\u0129\u2074 i\u2074yo\u00b2, m\u0129\u2074\u0129\u2074 i\u2074yo\u00b2 i\u00b3te\u00b2 k\u00e3\u2074 i\u00b3k\u00e3\u2074 ndwa\u2074a\u00b9\u00b3\u00b2 i\u2074chya\u00b9 t\u00e3\u00b3 i\u00b3k\u00e3\u2074 nda\u00b3ka\u00b3ya\u00b2n\u1ebd\u00b9 ko\u2074..., ko\u2074ndwa\u00b2 ta\u00b3ta\u00b2n\u00e3\u00b9."
+      },
+      "a37_SURFACE2": {
+        "lineref": "a37_SURFACE2",
+        "start": 96.045,
+        "stop": 104.113,
+        "value": "In\u00b3ka\u2074chi\u00b9 chi&#039;\u2074i\u2074n\u1ebd\u00b2 j\u0129&#039;\u2074\u0129\u2074 t\u0169\u2074 i\u00b3ta\u00b2 kw\u00e3\u00b9\u00f5\u2074 ba\u00b3 tu\u2074u\u00b2yu\u00b9 \u0129\u00b3\u0129\u00b3 tyem\u2074pu\u00b2."
+      },
+      "a38_SURFACE2": {
+        "lineref": "a38_SURFACE2",
+        "start": 104.113,
+        "stop": 111.448,
+        "value": "I\u00b3\u0129\u00b3 tyem\u2074pu\u00b2 ya\u00b9 k\u00e3\u2074 ndi\u2074 ndu\u2074te\u00b9 t\u00e3\u00b3 ja\u2074chw\u0303\u00e3\u2074\u00e3\u00b2 j\u0129&#039;\u2074\u0129\u2074n\u00e3\u00b2 ya\u00b9, ya\u00b9 bi\u00b3ko\u2074 i\u00b3ta\u00b2 ka\u2074chyo\u00b2\u2074 k\u00e3\u2074 a\u00b9chi\u00b9, sa\u00b3k\u00e3\u2074 ba\u2074\u00b2 ji\u2074n\u0129\u00b2 yu&#039;\u00b9u\u00b9 be\u00b2 r\u00e3\u2074, kwa\u00b9\u2074a\u00b2 ji\u2074n\u0129\u00b2yu\u00b9 tyem\u2074pu\u00b2 bi\u00b3t\u0129\u00b3 ndi\u2074,"
+      },
+      "a40_SURFACE2": {
+        "lineref": "a40_SURFACE2",
+        "start": 111.448,
+        "stop": 113.478,
+        "value": "Ba\u00b9\u2074\u00b3 xi\u2074ywa\u00b9\u00b3\u00b2 yu\u00b3m\u0129\u2074."
+      },
+      "a41_SURFACE2": {
+        "lineref": "a41_SURFACE2",
+        "start": 113.478,
+        "stop": 117.752,
+        "value": "Ji\u00b9\u2074ndyo\u00b2\u2074 sa\u00b9a\u00b3 a\u00b3se\u00b2 n\u00e3\u2074 i\u2074yo\u00b2 ndi\u00b3k\u1ef9\u00e3\u2074\u00b2 t\u00e3\u00b3 chye&#039;\u00b3e\u2074\u00b2 ndi\u2074 xa\u00b3ku\u2074n\u0129\u2074\u00b2 xi\u2074ywa\u00b9\u00b3\u00b2 nywe\u00b3e\u00b2\u2074 ka\u00b9a\u00b3."
+      },
+      "a44_SURFACE2": {
+        "lineref": "a44_SURFACE2",
+        "start": 124.14,
+        "stop": 127.012,
+        "value": "Ra\u00fal n\u00e3\u00b3n\u0129\u2074\u00b2."
+      },
+      "a46_SURFACE2": {
+        "lineref": "a46_SURFACE2",
+        "start": 127.012,
+        "stop": 130.175,
+        "value": "U\u00b9bi\u00b9 xi\u00b3ko\u00b3 i\u00b9\u00f1\u0169\u00b9 kwi\u00b9ya\u00b9 ku\u2074u\u00b2."
+      },
+      "a48_SURFACE2": {
+        "lineref": "a48_SURFACE2",
+        "start": 130.175,
+        "stop": 130.175,
+        "value": "Yolox\u00f3chitl ku\u2074u\u2074 \u00f1\u0169\u00b3\u0169\u00b2yu\u00b9."
+      }
+    }
+  },
+  "RCG Traducci\u00f3n": {
+    "display": "top",
+    "color": "C57214",
+    "lines": {
+      "a50": {
+        "lineref": "a18",
+        "start": 0,
+        "stop": 0,
+        "value": "Cu\u00e9ntanos un poco sobre la flor de olote dom\u00e9stica."
+      },
+      "a51": {
+        "lineref": "a19",
+        "start": 7.1,
+        "stop": 7.1,
+        "value": "Cu\u00e1ntos tipos hay, d\u00f3nde hay, y en qu\u00e9 tiempo lo siembran."
+      },
+      "a52": {
+        "lineref": "a20",
+        "start": 11.972,
+        "stop": 11.972,
+        "value": "Para qu\u00e9 lo utilizan, c\u00f3mo son, y para qu\u00e9 se utilizan."
+      },
+      "a53": {
+        "lineref": "a27",
+        "start": 57.621,
+        "stop": 57.621,
+        "value": "\u00bfLo cosen en guirnaldas?"
+      },
+      "a54": {
+        "lineref": "a29",
+        "start": 64.875,
+        "stop": 64.875,
+        "value": "\u00bfY huele bien?"
+      },
+      "a55": {
+        "lineref": "a33",
+        "start": 79.697,
+        "stop": 79.697,
+        "value": "\u00bfAh, s\u00ed? Son como, son peque\u00f1os.  Y los cosen y, este, y c\u00f3mo recogen las semillas para sembrar?"
+      },
+      "a56": {
+        "lineref": "a36",
+        "start": 96.045,
+        "stop": 96.045,
+        "value": "Y \u00bflos siembran juntos con el cempaz\u00fachitl? Al mismo tiempo. \u00bfAh, s\u00ed?"
+      },
+      "a57": {
+        "lineref": "a39",
+        "start": 111.448,
+        "stop": 111.448,
+        "value": "\u00bfNo se da en temporada de seca?"
+      },
+      "a58": {
+        "lineref": "a42",
+        "start": 117.752,
+        "stop": 117.752,
+        "value": "\u00bfAh, s\u00ed? Y, este, eso es todo, pues. Bueno."
+      },
+      "a59": {
+        "lineref": "a43",
+        "start": 124.14,
+        "stop": 124.14,
+        "value": "\u00bfC\u00f3mo te llamas?"
+      },
+      "a60": {
+        "lineref": "a45",
+        "start": 127.012,
+        "stop": 127.012,
+        "value": "\u00bfCu\u00e1ntos a\u00f1os tienes?"
+      },
+      "a61": {
+        "lineref": "a47",
+        "start": 130.175,
+        "stop": 131.876,
+        "value": "\u00bfC\u00f3mo se llama tu pueblo?"
+      },
+      "a62": {
+        "lineref": "a49",
+        "start": 132.305,
+        "stop": 132.313,
+        "value": "S\u00ed, est\u00e1 bien."
+      }
+    }
+  },
+  "RFM Traducci\u00f3n": {
+    "display": "top",
+    "color": "F84316",
+    "lines": {
+      "a63": {
+        "lineref": "a21",
+        "start": 16.909,
+        "stop": 16.909,
+        "value": "La flor de olote dom\u00e9stica es la que se ocupa en las ofrendas en los altares junto con la flor de cempaz\u00fachitl en todo santo,"
+      },
+      "a64": {
+        "lineref": "a22",
+        "start": 24.331,
+        "stop": 24.331,
+        "value": "las siembran en el tiempo en el que se siembran las semillas de cempaz\u00fachitl."
+      },
+      "a65": {
+        "lineref": "a23",
+        "start": 31.243,
+        "stop": 31.243,
+        "value": "Aqu\u00ed en el pueblo no se dan muy bien, en otros lugares, quiz\u00e1 m\u00e1s fr\u00edos se dan las flores muy bonitas, pero aqu\u00ed en el pueblo se dan las flores muy peque\u00f1as, creo."
+      },
+      "a66": {
+        "lineref": "a24",
+        "start": 40.327,
+        "stop": 40.327,
+        "value": "Crece apenas as\u00ed, sus flores son muy peque\u00f1as, apenas as\u00ed y"
+      },
+      "a67": {
+        "lineref": "a25",
+        "start": 46.041,
+        "stop": 46.041,
+        "value": "esas flores son las que se llevan en los ofrendas junto con las flores de cempaz\u00fachitl en el tiempo de todo santo, se dan muy poco aqu\u00ed en el pueblo. No se da bien en este pueblo."
+      },
+      "a68": {
+        "lineref": "a26",
+        "start": 53.917,
+        "stop": 53.917,
+        "value": "Quiz\u00e1 no lo siembran, ni yo no lo siembro porque para eso se necesitan las semillas."
+      },
+      "a69": {
+        "lineref": "a28",
+        "start": 58.351,
+        "stop": 58.351,
+        "value": "S\u00ed, los cosen con un hilo delgado. Sus guirnaldas son delgadas porque sus flores son muy peque\u00f1as."
+      },
+      "a70": {
+        "lineref": "a30",
+        "start": 65.885,
+        "stop": 65.885,
+        "value": "S\u00ed tiene olor, huelen, sirven para llevarlas a ofrendar en los altares."
+      },
+      "a71": {
+        "lineref": "a31",
+        "start": 70.611,
+        "stop": 70.611,
+        "value": "Sus flores son rosas, hay rosas y rojas, esas tambi\u00e9n son de dos tipos."
+      },
+      "a72": {
+        "lineref": "a32",
+        "start": 75.889,
+        "stop": 75.889,
+        "value": "Se parecen a las hojas de la flor de pastora las hojas de \u00e9sa planta."
+      },
+      "a73": {
+        "lineref": "a34",
+        "start": 79.697,
+        "stop": 86.903,
+        "value": "S\u00ed asi son verdes, son peque\u00f1as."
+      },
+      "a74": {
+        "lineref": "a35",
+        "start": 86.903,
+        "stop": 86.903,
+        "value": "Recogen las semillas de esas flores creo, porque yo no la he sembrado. Porque tienen semillas, donde tiene sus flores las secan para recoger las semillas para sembrar."
+      },
+      "a75": {
+        "lineref": "a37",
+        "start": 96.045,
+        "stop": 104.113,
+        "value": "S\u00ed los siembran al mismo tiempo que el cempaz\u00fachitl."
+      },
+      "a76": {
+        "lineref": "a38",
+        "start": 104.113,
+        "stop": 104.113,
+        "value": "Al mismo tiempo se da, porque se ocupa en todo santo, s\u00e9 que se da en ese tiempo, no hay en esta temporada que yo sepa."
+      },
+      "a77": {
+        "lineref": "a40",
+        "start": 111.448,
+        "stop": 113.478,
+        "value": "No se da en temporada de seca."
+      },
+      "a78": {
+        "lineref": "a41",
+        "start": 113.478,
+        "stop": 113.478,
+        "value": "No sabemos si al sembrarla se va dar en este pueblo porque aqui se da muy poco."
+      },
+      "a79": {
+        "lineref": "a44",
+        "start": 124.14,
+        "stop": 127.012,
+        "value": "Me llamo Ra\u00fal."
+      },
+      "a80": {
+        "lineref": "a46",
+        "start": 127.012,
+        "stop": 130.175,
+        "value": "Tengo 46 a\u00f1os."
+      },
+      "a81": {
+        "lineref": "a48",
+        "start": 130.175,
+        "stop": 132.313,
+        "value": "Mi pueblo es Yolox\u00f3chitl."
+      }
+    }
+  }
+};
+      
       var tierArr = {
         "Rey Castillo García": {
           participant: "Rey Castillo García",
@@ -1270,6 +1213,7 @@
           },
         },
       };
+      
       var timeslotArr = {
         1: 0,
         2: 0,
@@ -1400,6 +1344,7 @@
         127: 134468,
         128: 134468,
       };
+      
       var lineTimeArr = {
         a18: {
           start: 1,
@@ -1711,6 +1656,7 @@
           var tiers = tierArr[pid].tiers;
           for (tid in tiers) {
             //tid == $a_tier['TIER_ID']
+            console.log(`dataArr[tid].color: ${JSON.stringify(dataArr[tid])}`);
             if (dataArr[tid] && dataArr[tid].color) {
               tierArr[pid].tiers[tid].color = dataArr[tid].color;
             }

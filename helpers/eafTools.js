@@ -71,12 +71,13 @@ function getDataArray(eaf)
       timeSlotString = timeSlotString.replace("ts","").replace("a","");
       
       let timeSlot = timeSlotArray[timeSlotString]/1000;
+      let lineValue = htmlEntities(line["ANNOTATION_VALUE"]); 
       
       nLines[lineRef1] = {
         "lineref" : lineRef2,
         "start": start,
         "stop": stop,
-        "value": line["ANNOTATION_VALUE"]
+        "value": lineValue
       }
       return nLines;
     },{});
@@ -164,6 +165,10 @@ function getTierArr(eaf){
     }
   });
   return tierArr;
+}
+
+function htmlEntities(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 module.exports = {

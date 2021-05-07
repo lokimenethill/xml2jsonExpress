@@ -7,14 +7,35 @@ const ExpHbs = require('express-handlebars');
 var fs = require('fs');
 const appRoot = require('app-root-path').path;
 
+var chars =  {
+  '<': '&lt;',
+  '>': '&gt;',
+  '(': '&#40;',
+  ')': '&#41;',
+  '#': '&#35;',
+  '&': '&amp;',
+  '"': '&quot;',
+  "'": '&apos;'
+};
+
+const options = {
+  object: true,
+  reversible: false,
+  coerce: false,
+  sanitize: true,
+  trim: true,
+  arrayNotation: false,
+  alternateTextNode: false
+};
+
 // MP3 Constans
 const EAF_TITLE = `I³ta² sa³in⁴ ta³ta² (<i>Gomphrena serrata</i> L. por Raúl Felipe Margarito (Yoloxóchitl mixteco, <i>yolo1241</i>)`;
-const EAF_FILE_NAME = "a01.eaf";
-const AUDIO_FILE = `https://cdn.glitch.com/120f087f-0e29-4163-9f0b-687d6b040d37%2Fasset01.mp3?v=1608405042333`;
+const EAF_FILE_NAME = "a03.eaf";
+const AUDIO_FILE = `https://drakoestudio.com.mx/SYLARDEMULE/audios/DEMCA_archivos_Jonathan/Chilc_Botan_RMM302-MSO325_mowih-Acanthaceae_2011-07-27-j.mp3`;
 
 // Reading the file
 let eafXml = fs.readFileSync( path.join(appRoot,'originals', EAF_FILE_NAME), 'utf8');
-var eafJs = JSON.parse(parser.toJson(eafXml));
+var eafJs = parser.toJson(eafXml, options);
 
 // App Templae EGINE
 app.engine('hbs', ExpHbs({

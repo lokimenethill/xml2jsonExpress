@@ -71,12 +71,13 @@ function getDataArray(eaf)
       timeSlotString = timeSlotString.replace("ts","").replace("a","");
       
       let timeSlot = timeSlotArray[timeSlotString]/1000;
+      let annotation_value = line["ANNOTATION_VALUE"];
       
       nLines[lineRef1] = {
         "lineref" : lineRef2,
         "start": start,
         "stop": stop,
-        "value": line["ANNOTATION_VALUE"]
+        "value": annotation_value.replace(/['"]+/g, '')
       }
       return nLines;
     },{});

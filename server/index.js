@@ -9,12 +9,31 @@ const appRoot = require('app-root-path').path;
 
 // MP3 Constans
 const EAF_TITLE = `I³ta² sa³in⁴ ta³ta² (<i>Gomphrena serrata</i> L. por Raúl Felipe Margarito (Yoloxóchitl mixteco, <i>yolo1241</i>)`;
-const EAF_FILE_NAME = "a01.eaf";
+const EAF_FILE_NAME = "a02.eaf";
 const AUDIO_FILE = `https://cdn.glitch.com/120f087f-0e29-4163-9f0b-687d6b040d37%2Fasset01.mp3?v=1608405042333`;
+const options = {
+  object: true,
+  reversible: false,
+  coerce: true,
+  sanitize: true,
+  trim: true,
+  arrayNotation: false,
+  alternateTextNode: false
+};
 
+var chars =  {
+  '<': '&lt;',
+  '>': '&gt;',
+  '(': '&#40;',
+  ')': '&#41;',
+  '#': '&#35;',
+  '&': '&amp;',
+  '"': '&quot;',
+  "'": '&apos;'
+};
 // Reading the file
 let eafXml = fs.readFileSync( path.join(appRoot,'originals', EAF_FILE_NAME), 'utf8');
-var eafJs = JSON.parse(parser.toJson(eafXml));
+var eafJs = parser.toJson(eafXml,options);
 
 // App Templae EGINE
 app.engine('hbs', ExpHbs({

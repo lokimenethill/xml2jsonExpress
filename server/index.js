@@ -30,15 +30,24 @@ app.get('/', (req, res)=>{
   // Getting variables
   let timeslotArr = eafTools.getTimeSlotArray(eafJs);
   let dataArr = eafTools.getDataArray(eafJs);
-  let lineTimeArr = eafTools.getLineTimeArray(eafJs)
-  let tierArr = eafTools.getTierArr(eafJs)
+  let lineTimeArr = eafTools.getLineTimeArray(eafJs);
+  let tierArr = eafTools.getTierArr(eafJs);
+
+  let timeslotArrStr = JSON.stringify(timeslotArr);
+  let dataArrStr = JSON.stringify(dataArr);
+  let lineTimeArrStr = JSON.stringify(lineTimeArr);
+  let tierArrStr = JSON.stringify(tierArr);
 
   let eafViewModel = {
     title : EAF_TITLE,
     timeslotArr,
+    timeslotArrStr,
     dataArr,
+    dataArrStr,
     lineTimeArr,
+    lineTimeArrStr,
     tierArr,
+    tierArrStr,
     audioFile: AUDIO_FILE
   }
 

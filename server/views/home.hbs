@@ -65,9 +65,9 @@
                 type="checkbox"
                 style="margin-right: 8px"
                 class="check-tier"
-                name="check-tier-{{name}}"
+                name="check-tier-{{../participant}}"
                 id="checkbox-{{name}}"
-                onchange='changeTierCheck("{{name}}");toggleTier("{{name}}");'
+                onchange='changeTierCheck("{{../participant}}");toggleTier("{{name}}");'
                 value="{{name}}"
                 checked/>
               <!-- INPUT 2 -->
@@ -82,7 +82,7 @@
                   font-size: 0px;
                   margin-right: 8px;"
                 value="{{color}}"
-                onchange='changeTierColor(this.value,"{{name}}","{{name}}");'/>
+                onchange='changeTierColor(this.value,"{{../participant}}","{{name}}");'/>
               <!-- SPAN 1 -->  
               <span
                 id="key-{{name}}"
